@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "title": "MediMate – Honest hospital & clinic reviews in Korea",
+    "description": "Receipt-verified reviews of Korean hospitals and dermatology clinics, written by real travelers."
+  },
+  "nav": {
+    "home": "Home",
+    "my": "My page",
+    "admin": "Admin",
+    "login": "Sign in",
+    "logout": "Sign out"
+  },
+  "home": {
+    "title": "Find Korean clinics that travelers actually trust",
+    "subtitle": "Every review comes with a verified receipt, so you know it's from a real patient.",
+    "placeholder": "Clinic name or area, e.g. Gangnam",
+    "hint": "Korean names and areas (강남, 압구정) give the best results.",
+    "search": "Search",
+    "typeAll": "Hospitals & clinics",
+    "typeDerm": "Dermatology",
+    "howTitle": "How it works",
+    "steps": [
+      { "title": "Sign in with Google", "body": "One click, no new password." },
+      { "title": "Search a clinic", "body": "Find hospitals and dermatology clinics on Naver Maps." },
+      { "title": "Verify & review", "body": "Snap your receipt to prove your visit, then share your honest experience." }
+    ]
+  },
+  "search": {
+    "loading": "Searching…",
+    "empty": "No clinics found. Try a Korean name or a different area.",
+    "error": "Search failed. Please try again."
+  },
+  "login": {
+    "title": "Sign in to MediMate",
+    "subtitle": "Sign in to write a verified review.",
+    "google": "Continue with Google",
+    "failed": "Sign-in failed. Please try again.",
+    "note": "We only use your name and profile photo."
+  },
+  "hospital": {
+    "reviews": "Reviews",
+    "noReviews": "No reviews yet. Be the first to share your experience.",
+    "write": "Write a review",
+    "address": "Address",
+    "phone": "Phone",
+    "openNaver": "Open in Naver Maps",
+    "avg": "Average rating",
+    "count": "reviews",
+    "englishFluent": "Fluent English",
+    "director": "Head doctor consults",
+    "verified": "Receipt verified",
+    "visited": "Visited",
+    "treatment": "Treatment"
+  },
+  "review": {
+    "title": "Write a review",
+    "forClinic": "Reviewing",
+    "step1": "1. Verify your visit",
+    "step2": "2. Share your experience",
+    "receiptLabel": "Photo of your receipt",
+    "receiptHelp": "Upload a clear JPG or PNG (max 10 MB) showing the clinic name, date and total.",
+    "receiptPrivacy": "Your receipt is stored privately and is never shown to other users.",
+    "upload": "Verify receipt",
+    "uploading": "Checking your receipt…",
+    "status": {
+      "pending": "Under manual review. You can write your review once it is approved.",
+      "auto_approved": "Receipt verified automatically. You can write your review.",
+      "approved": "Receipt approved. You can write your review.",
+      "rejected": "Receipt rejected."
+    },
+    "rating": "Overall rating",
+    "body": "Your experience",
+    "bodyPlaceholder": "What was the consultation like? Was the price clear? Would you go again? (min. 10 characters)",
+    "visitDate": "Visit date",
+    "treatment": "Treatment (optional)",
+    "categories": "Details travelers care about",
+    "english": "English support",
+    "englishOptions": { "none": "None", "basic": "Basic", "fluent": "Fluent" },
+    "interpreter": "Interpreter / translation available",
+    "director": "The head doctor gave the consultation personally",
+    "priceExplained": "Price was explained before treatment",
+    "noUpselling": "No pressure to add extra treatments",
+    "submit": "Post review",
+    "submitting": "Posting…",
+    "alreadyUsed": "This receipt already has a review.",
+    "pickReceipt": "Pick one of your verified receipts for this clinic:",
+    "noUsable": "You have no usable receipt for this clinic yet."
+  },
+  "errors": {
+    "notLoggedIn": "Please sign in first.",
+    "badFile": "Only JPG or PNG images up to 10 MB are accepted.",
+    "duplicate": "This receipt photo has already been submitted.",
+    "generic": "Something went wrong. Please try again.",
+    "invalid": "Please check the form and try again."
+  },
+  "reasons": {
+    "store_name_missing": "Clinic name not readable",
+    "store_name_mismatch": "Clinic name does not match",
+    "date_missing": "Date not readable",
+    "date_in_future": "Date is in the future",
+    "date_too_old": "Receipt is older than 90 days",
+    "total_missing": "Total amount not readable",
+    "ocr_unavailable": "Automatic check unavailable"
+  },
+  "my": {
+    "title": "My receipts",
+    "empty": "You haven't uploaded any receipts yet.",
+    "statusLabel": "Status",
+    "writeReview": "Write review",
+    "reviewed": "Reviewed",
+    "reason": "Reason"
+  },
+  "admin": {
+    "title": "Receipt review queue",
+    "empty": "Nothing to review.",
+    "approve": "Approve",
+    "reject": "Reject",
+    "reasonPlaceholder": "Reason (shown to the user)",
+    "ocr": "OCR result",
+    "hospital": "Clinic",
+    "viewImage": "Receipt image",
+    "score": "Name match"
+  },
+  "common": { "lang": "Language", "back": "Back" }
+}

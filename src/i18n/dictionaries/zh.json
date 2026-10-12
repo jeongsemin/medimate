@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "title": "MediMate – 韩国医院与皮肤科真实评价",
+    "description": "由真实就诊者撰写、经小票验证的评价，帮你找到靠谱的韩国医院和皮肤科。"
+  },
+  "nav": {
+    "home": "首页",
+    "my": "我的",
+    "admin": "管理",
+    "login": "登录",
+    "logout": "退出登录"
+  },
+  "home": {
+    "title": "找到游客真正信赖的韩国诊所",
+    "subtitle": "每条评价都附有经验证的小票，确保来自真实就诊的用户。",
+    "placeholder": "诊所名称或地区，例如：江南",
+    "hint": "使用韩文名称或地区（강남、압구정）搜索结果最准确。",
+    "search": "搜索",
+    "typeAll": "医院与诊所",
+    "typeDerm": "皮肤科",
+    "howTitle": "使用方法",
+    "steps": [
+      { "title": "使用 Google 登录", "body": "一键登录，无需新密码。" },
+      { "title": "搜索诊所", "body": "在 Naver 地图上查找医院和皮肤科。" },
+      { "title": "验证并评价", "body": "拍下小票证明就诊，然后分享你的真实体验。" }
+    ]
+  },
+  "search": {
+    "loading": "搜索中…",
+    "empty": "未找到诊所。请尝试韩文名称或其他地区。",
+    "error": "搜索失败，请重试。"
+  },
+  "login": {
+    "title": "登录 MediMate",
+    "subtitle": "登录后即可撰写经验证的评价。",
+    "google": "使用 Google 继续",
+    "failed": "登录失败，请重试。",
+    "note": "我们仅使用你的姓名和头像。"
+  },
+  "hospital": {
+    "reviews": "评价",
+    "noReviews": "暂无评价，快来分享你的体验吧。",
+    "write": "撰写评价",
+    "address": "地址",
+    "phone": "电话",
+    "openNaver": "在 Naver 地图中打开",
+    "avg": "平均评分",
+    "count": "条评价",
+    "englishFluent": "英语流利",
+    "director": "院长亲自问诊",
+    "verified": "小票已验证",
+    "visited": "就诊日期",
+    "treatment": "项目"
+  },
+  "review": {
+    "title": "撰写评价",
+    "forClinic": "评价对象",
+    "step1": "1. 验证就诊",
+    "step2": "2. 分享体验",
+    "receiptLabel": "小票照片",
+    "receiptHelp": "请上传清晰显示诊所名称、日期和总金额的 JPG 或 PNG 图片（最大 10 MB）。",
+    "receiptPrivacy": "小票将被私密保存，不会向其他用户展示。",
+    "upload": "验证小票",
+    "uploading": "正在检查小票…",
+    "status": {
+      "pending": "正在人工审核，通过后即可撰写评价。",
+      "auto_approved": "小票已自动验证，可以撰写评价。",
+      "approved": "小票已通过审核，可以撰写评价。",
+      "rejected": "小票未通过审核。"
+    },
+    "rating": "总体评分",
+    "body": "你的体验",
+    "bodyPlaceholder": "问诊过程如何？价格说明是否清楚？会再次光顾吗？（至少 10 个字）",
+    "visitDate": "就诊日期",
+    "treatment": "项目（选填）",
+    "categories": "游客关心的细节",
+    "english": "英语服务",
+    "englishOptions": { "none": "不支持", "basic": "基础沟通", "fluent": "流利" },
+    "interpreter": "提供翻译/口译",
+    "director": "由院长亲自问诊",
+    "priceExplained": "治疗前说明了价格",
+    "noUpselling": "没有强推额外项目",
+    "submit": "发布评价",
+    "submitting": "发布中…",
+    "alreadyUsed": "该小票已发布过评价。",
+    "pickReceipt": "请选择该诊所已验证的小票：",
+    "noUsable": "你还没有可用于该诊所的小票。"
+  },
+  "errors": {
+    "notLoggedIn": "请先登录。",
+    "badFile": "仅支持 10 MB 以内的 JPG 或 PNG 图片。",
+    "duplicate": "该小票照片已被提交过。",
+    "generic": "出错了，请重试。",
+    "invalid": "请检查表单后重试。"
+  },
+  "reasons": {
+    "store_name_missing": "无法识别诊所名称",
+    "store_name_mismatch": "诊所名称不匹配",
+    "date_missing": "无法识别日期",
+    "date_in_future": "日期晚于今天",
+    "date_too_old": "小票已超过 90 天",
+    "total_missing": "无法识别总金额",
+    "ocr_unavailable": "自动检查不可用"
+  },
+  "my": {
+    "title": "我的小票",
+    "empty": "你还没有上传任何小票。",
+    "statusLabel": "状态",
+    "writeReview": "撰写评价",
+    "reviewed": "已评价",
+    "reason": "原因"
+  },
+  "admin": {
+    "title": "小票审核队列",
+    "empty": "没有待审核项目。",
+    "approve": "通过",
+    "reject": "驳回",
+    "reasonPlaceholder": "原因（将展示给用户）",
+    "ocr": "OCR 结果",
+    "hospital": "诊所",
+    "viewImage": "小票图片",
+    "score": "名称匹配度"
+  },
+  "common": { "lang": "语言", "back": "返回" }
+}

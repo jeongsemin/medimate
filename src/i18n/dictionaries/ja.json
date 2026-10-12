@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "title": "MediMate – 韓国の病院・皮膚科の本音レビュー",
+    "description": "実際の利用者によるレシート認証済みレビューで、韓国の病院や皮膚科を探せます。"
+  },
+  "nav": {
+    "home": "ホーム",
+    "my": "マイページ",
+    "admin": "管理",
+    "login": "ログイン",
+    "logout": "ログアウト"
+  },
+  "home": {
+    "title": "旅行者が本当に信頼する韓国のクリニックを探そう",
+    "subtitle": "すべてのレビューはレシートで認証済み。実際に受診した人の声だとわかります。",
+    "placeholder": "クリニック名またはエリア（例：江南）",
+    "hint": "韓国語の名称やエリア（강남、압구정）で検索すると最も正確です。",
+    "search": "検索",
+    "typeAll": "病院・クリニック",
+    "typeDerm": "皮膚科",
+    "howTitle": "ご利用の流れ",
+    "steps": [
+      { "title": "Googleでログイン", "body": "ワンクリックで完了。新しいパスワードは不要です。" },
+      { "title": "クリニックを検索", "body": "Naverマップで病院や皮膚科を探せます。" },
+      { "title": "認証してレビュー", "body": "レシートを撮影して来院を証明し、率直な体験を共有しましょう。" }
+    ]
+  },
+  "search": {
+    "loading": "検索中…",
+    "empty": "クリニックが見つかりません。韓国語の名称や別のエリアでお試しください。",
+    "error": "検索に失敗しました。もう一度お試しください。"
+  },
+  "login": {
+    "title": "MediMateにログイン",
+    "subtitle": "認証済みレビューを書くにはログインしてください。",
+    "google": "Googleで続行",
+    "failed": "ログインに失敗しました。もう一度お試しください。",
+    "note": "名前とプロフィール写真のみ使用します。"
+  },
+  "hospital": {
+    "reviews": "レビュー",
+    "noReviews": "まだレビューがありません。最初の体験を共有しましょう。",
+    "write": "レビューを書く",
+    "address": "住所",
+    "phone": "電話番号",
+    "openNaver": "Naverマップで開く",
+    "avg": "平均評価",
+    "count": "件のレビュー",
+    "englishFluent": "英語が流暢",
+    "director": "院長が直接カウンセリング",
+    "verified": "レシート認証済み",
+    "visited": "来院日",
+    "treatment": "施術・診療"
+  },
+  "review": {
+    "title": "レビューを書く",
+    "forClinic": "対象",
+    "step1": "1. 来院を認証",
+    "step2": "2. 体験を共有",
+    "receiptLabel": "レシートの写真",
+    "receiptHelp": "クリニック名・日付・合計金額がはっきり写ったJPGまたはPNG（最大10MB）をアップロードしてください。",
+    "receiptPrivacy": "レシートは非公開で保存され、他のユーザーには表示されません。",
+    "upload": "レシートを認証",
+    "uploading": "レシートを確認中…",
+    "status": {
+      "pending": "手動で確認中です。承認後にレビューを書けます。",
+      "auto_approved": "レシートが自動認証されました。レビューを書けます。",
+      "approved": "レシートが承認されました。レビューを書けます。",
+      "rejected": "レシートは却下されました。"
+    },
+    "rating": "総合評価",
+    "body": "体験談",
+    "bodyPlaceholder": "カウンセリングはどうでしたか？料金の説明は明確でしたか？また行きたいですか？（10文字以上）",
+    "visitDate": "来院日",
+    "treatment": "施術・診療（任意）",
+    "categories": "旅行者が気になるポイント",
+    "english": "英語対応",
+    "englishOptions": { "none": "不可", "basic": "基本的な会話", "fluent": "流暢" },
+    "interpreter": "通訳・翻訳サポートあり",
+    "director": "院長が直接カウンセリングしてくれた",
+    "priceExplained": "施術前に料金の説明があった",
+    "noUpselling": "追加施術の押し売りがなかった",
+    "submit": "レビューを投稿",
+    "submitting": "投稿中…",
+    "alreadyUsed": "このレシートではすでにレビューが投稿されています。",
+    "pickReceipt": "このクリニックの認証済みレシートを選んでください：",
+    "noUsable": "このクリニックで使えるレシートはまだありません。"
+  },
+  "errors": {
+    "notLoggedIn": "先にログインしてください。",
+    "badFile": "10MBまでのJPGまたはPNG画像のみ受け付けます。",
+    "duplicate": "このレシート写真はすでに提出されています。",
+    "generic": "問題が発生しました。もう一度お試しください。",
+    "invalid": "入力内容をご確認ください。"
+  },
+  "reasons": {
+    "store_name_missing": "クリニック名を読み取れません",
+    "store_name_mismatch": "クリニック名が一致しません",
+    "date_missing": "日付を読み取れません",
+    "date_in_future": "日付が未来です",
+    "date_too_old": "90日以上前のレシートです",
+    "total_missing": "合計金額を読み取れません",
+    "ocr_unavailable": "自動確認を利用できません"
+  },
+  "my": {
+    "title": "マイレシート",
+    "empty": "アップロードしたレシートはまだありません。",
+    "statusLabel": "状態",
+    "writeReview": "レビューを書く",
+    "reviewed": "レビュー済み",
+    "reason": "理由"
+  },
+  "admin": {
+    "title": "レシート確認キュー",
+    "empty": "確認する項目はありません。",
+    "approve": "承認",
+    "reject": "却下",
+    "reasonPlaceholder": "理由（ユーザーに表示）",
+    "ocr": "OCR結果",
+    "hospital": "クリニック",
+    "viewImage": "レシート画像",
+    "score": "名称一致度"
+  },
+  "common": { "lang": "言語", "back": "戻る" }
+}
