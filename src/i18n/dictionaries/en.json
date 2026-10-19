@@ -373,7 +373,8 @@
     "badFile": "Only JPG or PNG images up to 10 MB are accepted.",
     "duplicate": "This receipt photo has already been submitted.",
     "generic": "Something went wrong. Please try again.",
-    "invalid": "Please check the form and try again."
+    "invalid": "Please check the form and try again.",
+    "consent": "Please tick both required agreements."
   },
   "reasons": {
     "store_name_missing": "Clinic name not readable",
@@ -410,5 +411,56 @@
   "footer": {
     "disclaimer": "MediMate helps you browse medical information and does not replace diagnosis or treatment. Confirm actual treatment, prices and booking conditions directly with the clinic.",
     "meta": "© 2026 MediMate"
+  },
+  "write": {
+    "breadcrumb": [
+      "Clinic details",
+      "Write a review"
+    ],
+    "title": "Your experience helps answer the next traveler's question.",
+    "subtitle": "Share what you went through, honestly. You can write once your visit is verified with a receipt.",
+    "progress": [
+      "01 Verify visit",
+      "02 Your experience",
+      "03 Review & publish"
+    ],
+    "required": "* Required",
+    "hospital": "Clinic",
+    "hospitalHelp": "Please check this is the clinic you want to review.",
+    "gate": "Once your receipt is verified, you can write your experience below.",
+    "visitMonth": "Visit month",
+    "treatment": "Treatment",
+    "treatmentPlaceholder": "e.g. Laser toning",
+    "rating": "How was your overall experience?",
+    "ratingWords": [
+      "1 · Disappointing",
+      "2 · Not great",
+      "3 · Okay",
+      "4 · Good",
+      "5 · Excellent"
+    ],
+    "ratingHelp": "Use the arrow keys to choose 1–5.",
+    "body": "Your visit",
+    "bodyHelp": "{n} / 2,000 characters · at least 100. Describe the consultation, cost and language support.",
+    "categoriesHelp": "Tick what applies. It helps other travelers choose a clinic.",
+    "publishTitle": "What becomes public",
+    "publishBody": "Your nickname, rating, visit month, clinic, treatment and review are shown. Your email, exact visit date and receipt photo are never shown. Make sure your review has no one else's personal information.",
+    "consents": [
+      "[Required] I understand what becomes public and agree to publish.",
+      "[Required] This is my own experience and I agree to the review guidelines."
+    ],
+    "after": "Your review appears on the clinic page. One receipt can back only one review.",
+    "guideTitle": [
+      "Your own experience,",
+      "useful to someone else."
+    ],
+    "guide": [
+      "Be specific about the consultation and quoted costs",
+      "Mention how language support worked, and when",
+      "Don't claim results or share others' personal information",
+      "Disclose any reward or advertising relationship"
+    ],
+    "verifyTitle": "Your visit is verified by receipt",
+    "verifyBody": "Only users who verified their visit with a receipt can write reviews. Verification confirms the visit, not treatment results, and guarantees nothing about outcomes."
   }
 }

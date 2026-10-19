@@ -16,6 +16,7 @@
   --deep: #153a42; /* language banner */
   --star: #9f6f22;
   --error-soft: #fff2f0;
+  --star-soft: #f6f2e9;
 }
 
 @theme inline {
@@ -33,6 +34,7 @@
   --color-deep: var(--deep);
   --color-star: var(--star);
   --color-error-soft: var(--error-soft);
+  --color-star-soft: var(--star-soft);
 
   --radius-sm: 8px;
   --radius-md: 16px;

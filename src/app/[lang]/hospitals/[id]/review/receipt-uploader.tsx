@@ -57,8 +57,8 @@ export function ReceiptUploader({ hospitalId, text }: { hospitalId: string; text
 
   return (
     <form onSubmit={upload} className="space-y-3">
-      <label className="block text-sm font-medium" htmlFor="receipt-file">
-        {text.receiptLabel}
+      <label className="block text-[13px] font-bold" htmlFor="receipt-file">
+        {text.receiptLabel} *
       </label>
       <input
         id="receipt-file"
@@ -70,36 +70,36 @@ export function ReceiptUploader({ hospitalId, text }: { hospitalId: string; text
           const f = e.target.files?.[0];
           setPreview(f ? URL.createObjectURL(f) : null);
         }}
-        className="block w-full text-sm file:mr-3 file:rounded-full file:border-0 file:bg-brand-soft file:px-4 file:py-2 file:text-brand-strong"
+        className="block w-full rounded-sm border border-border bg-white p-3 text-sm file:mr-3 file:rounded-full file:border-0 file:bg-brand-soft file:px-4 file:py-2 file:text-[13px] file:font-bold file:text-brand"
       />
       {preview && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={preview} alt="" className="max-h-56 rounded-lg border border-border" />
+        <img src={preview} alt="" className="h-[120px] rounded-md border border-border object-cover" />
       )}
-      <p className="text-xs text-muted">{text.receiptHelp}</p>
-      <p className="text-xs text-muted">{text.receiptPrivacy}</p>
+      <p className="text-[11px] text-muted">{text.receiptHelp}</p>
+      <p className="text-[11px] text-muted">{text.receiptPrivacy}</p>
       <button
         disabled={busy}
-        className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2 font-medium text-white hover:bg-brand-strong disabled:opacity-60"
+        className="inline-flex min-h-12 items-center gap-2 rounded-sm border border-border bg-white px-5 py-3 text-sm font-bold text-brand hover:bg-brand-soft disabled:opacity-60"
       >
-        <Camera className="size-4" aria-hidden />
+        <Camera className="size-5" aria-hidden />
         {busy ? text.uploading : text.upload}
       </button>
 
       <div aria-live="polite">
         {outcome && (
           <div
-            className={`rounded-lg p-3 text-sm ${
+            className={`rounded-sm p-3.5 text-xs ${
               outcome.kind === "ok"
-                ? "bg-brand-soft text-brand-strong"
+                ? "bg-brand-soft text-brand"
                 : outcome.kind === "wait"
-                  ? "bg-amber-50 text-amber-900"
-                  : "bg-red-50 text-red-700"
+                  ? "bg-star-soft text-star"
+                  : "bg-error-soft text-error"
             }`}
           >
             <p>{outcome.message}</p>
             {outcome.reasons && outcome.reasons.length > 0 && (
-              <ul className="mt-1 list-disc pl-5 text-xs">
+              <ul className="mt-1 list-disc pl-5">
                 {outcome.reasons.map((r) => (
                   <li key={r}>{text.reasons[r] ?? r}</li>
                 ))}
