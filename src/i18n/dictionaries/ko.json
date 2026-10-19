@@ -444,15 +444,43 @@
     "noteBody": "영수증 사진은 비공개로 보관되며 인증에만 사용됩니다. 작성한 리뷰는 언제든 삭제할 수 있습니다."
   },
   "admin": {
+    "breadcrumb": "관리자",
     "title": "영수증 검토 대기열",
-    "empty": "검토할 항목이 없습니다.",
-    "approve": "승인",
-    "reject": "반려",
-    "reasonPlaceholder": "사유 (사용자에게 표시)",
-    "ocr": "OCR 결과",
-    "hospital": "병원",
-    "viewImage": "영수증 이미지",
-    "score": "이름 일치도"
+    "subtitle": "자동 인증되지 않은 영수증을 확인해 승인하거나 반려하세요. 반려 사유는 사용자에게 표시됩니다.",
+    "stats": {
+      "pending": "검토 대기",
+      "autoApproved": "자동 인증",
+      "approved": "승인",
+      "rejected": "반려"
+    },
+    "queueTitle": "검토 대기",
+    "empty": "검토할 영수증이 없어요.",
+    "card": {
+      "uploader": "업로더",
+      "uploadedAt": "업로드",
+      "hospital": "병원",
+      "ocrStore": "OCR 상호",
+      "ocrDate": "OCR 결제일",
+      "ocrTotal": "OCR 금액",
+      "score": "이름 일치도",
+      "noOcr": "OCR 결과 없음",
+      "autoReasons": "자동 검토에서 걸린 항목",
+      "viewImage": "원본 크게 보기",
+      "reasonPlaceholder": "사유 (반려 시 사용자에게 표시)",
+      "approve": "승인",
+      "reject": "반려"
+    },
+    "recent": {
+      "title": "최근 처리",
+      "empty": "아직 처리 내역이 없어요.",
+      "approved": "승인",
+      "rejected": "반려",
+      "by": "처리자"
+    },
+    "note": {
+      "title": "검토 기준",
+      "body": "병원명, 결제일(최근 90일), 금액이 영수증과 일치하는지 확인하세요. 영수증 사진은 인증 목적 외에 사용하지 않습니다."
+    }
   },
   "common": {
     "lang": "언어",

@@ -444,15 +444,43 @@
     "noteBody": "小票照片会被私密保存，仅用于验证。你可以随时删除自己撰写的评价。"
   },
   "admin": {
+    "breadcrumb": "管理",
     "title": "小票审核队列",
-    "empty": "没有待审核项目。",
-    "approve": "通过",
-    "reject": "驳回",
-    "reasonPlaceholder": "原因（将展示给用户）",
-    "ocr": "OCR 结果",
-    "hospital": "诊所",
-    "viewImage": "小票图片",
-    "score": "名称匹配度"
+    "subtitle": "请审核未通过自动验证的小票，并选择通过或驳回。驳回原因会显示给用户。",
+    "stats": {
+      "pending": "待审核",
+      "autoApproved": "自动验证",
+      "approved": "已通过",
+      "rejected": "已驳回"
+    },
+    "queueTitle": "待审核",
+    "empty": "没有待审核的小票。",
+    "card": {
+      "uploader": "上传者",
+      "uploadedAt": "上传",
+      "hospital": "诊所",
+      "ocrStore": "OCR 店名",
+      "ocrDate": "OCR 支付日",
+      "ocrTotal": "OCR 金额",
+      "score": "名称匹配度",
+      "noOcr": "无 OCR 结果",
+      "autoReasons": "自动检查中未通过的项目",
+      "viewImage": "查看原图",
+      "reasonPlaceholder": "原因（驳回时显示给用户）",
+      "approve": "通过",
+      "reject": "驳回"
+    },
+    "recent": {
+      "title": "最近处理",
+      "empty": "暂无处理记录。",
+      "approved": "已通过",
+      "rejected": "已驳回",
+      "by": "处理人"
+    },
+    "note": {
+      "title": "审核标准",
+      "body": "请确认诊所名称、支付日期（近 90 天内）和金额与小票一致。小票照片仅用于验证。"
+    }
   },
   "common": {
     "lang": "语言",

@@ -444,15 +444,43 @@
     "noteBody": "Receipt photos are kept private and used only for verification. You can delete your reviews at any time."
   },
   "admin": {
+    "breadcrumb": "Admin",
     "title": "Receipt review queue",
+    "subtitle": "Review receipts that weren't verified automatically and approve or reject them. The rejection reason is shown to the user.",
+    "stats": {
+      "pending": "Awaiting review",
+      "autoApproved": "Auto-verified",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    },
+    "queueTitle": "Awaiting review",
     "empty": "Nothing to review.",
-    "approve": "Approve",
-    "reject": "Reject",
-    "reasonPlaceholder": "Reason (shown to the user)",
-    "ocr": "OCR result",
-    "hospital": "Clinic",
-    "viewImage": "Receipt image",
-    "score": "Name match"
+    "card": {
+      "uploader": "Uploader",
+      "uploadedAt": "Uploaded",
+      "hospital": "Clinic",
+      "ocrStore": "OCR store",
+      "ocrDate": "OCR date",
+      "ocrTotal": "OCR total",
+      "score": "Name match",
+      "noOcr": "No OCR result",
+      "autoReasons": "Flagged by the automatic check",
+      "viewImage": "Open full size",
+      "reasonPlaceholder": "Reason (shown to the user when rejected)",
+      "approve": "Approve",
+      "reject": "Reject"
+    },
+    "recent": {
+      "title": "Recently decided",
+      "empty": "No decisions yet.",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "by": "By"
+    },
+    "note": {
+      "title": "What to check",
+      "body": "Confirm the clinic name, payment date (within 90 days) and amount match the receipt. Receipt photos are used only for verification."
+    }
   },
   "common": {
     "lang": "Language",

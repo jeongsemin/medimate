@@ -444,15 +444,43 @@
     "noteBody": "レシート写真は非公開で保管され、認証にのみ使用されます。投稿したレビューはいつでも削除できます。"
   },
   "admin": {
+    "breadcrumb": "管理者",
     "title": "レシート確認キュー",
-    "empty": "確認する項目はありません。",
-    "approve": "承認",
-    "reject": "却下",
-    "reasonPlaceholder": "理由（ユーザーに表示）",
-    "ocr": "OCR結果",
-    "hospital": "クリニック",
-    "viewImage": "レシート画像",
-    "score": "名称一致度"
+    "subtitle": "自動認証されなかったレシートを確認して承認または却下します。却下理由はユーザーに表示されます。",
+    "stats": {
+      "pending": "確認待ち",
+      "autoApproved": "自動認証",
+      "approved": "承認",
+      "rejected": "却下"
+    },
+    "queueTitle": "確認待ち",
+    "empty": "確認するレシートはありません。",
+    "card": {
+      "uploader": "アップロード者",
+      "uploadedAt": "アップロード",
+      "hospital": "クリニック",
+      "ocrStore": "OCR店名",
+      "ocrDate": "OCR決済日",
+      "ocrTotal": "OCR金額",
+      "score": "名称一致度",
+      "noOcr": "OCR結果なし",
+      "autoReasons": "自動チェックで引っかかった項目",
+      "viewImage": "原寸で開く",
+      "reasonPlaceholder": "理由（却下時にユーザーへ表示）",
+      "approve": "承認",
+      "reject": "却下"
+    },
+    "recent": {
+      "title": "最近の処理",
+      "empty": "まだ処理履歴はありません。",
+      "approved": "承認",
+      "rejected": "却下",
+      "by": "処理者"
+    },
+    "note": {
+      "title": "確認の基準",
+      "body": "クリニック名、決済日（直近90日）、金額がレシートと一致するか確認してください。レシート写真は認証以外の目的では使用しません。"
+    }
   },
   "common": {
     "lang": "言語",
