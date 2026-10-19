@@ -156,9 +156,87 @@
     }
   },
   "search": {
-    "loading": "Searching…",
-    "empty": "No clinics found. Try a Korean name or a different area.",
-    "error": "Search failed. Please try again."
+    "breadcrumb": "Home  /  Search & compare",
+    "title": "Results for “{q}”",
+    "titleEmpty": "Search & compare clinics",
+    "subtitle": "Your search conditions are kept. Order follows Naver Maps search results.",
+    "filters": "Filters",
+    "apply": "Apply filters",
+    "resetAll": "Reset all",
+    "any": "Any",
+    "groups": {
+      "area": "Area",
+      "treatment": "Treatment",
+      "rating": "Rating",
+      "reviews": "Reviews",
+      "support": "Language & consultation (from reviews)"
+    },
+    "ratingOpts": [
+      "4.5 or higher",
+      "4.0 or higher"
+    ],
+    "reviewOpts": [
+      "10 or more",
+      "5 or more",
+      "1 or more"
+    ],
+    "supportOpts": {
+      "english": "Fluent English",
+      "director": "Head doctor consults"
+    },
+    "chips": {
+      "rating": "Rating {n}+",
+      "reviews": "{n}+ reviews",
+      "english": "English",
+      "director": "Head doctor"
+    },
+    "count": "{n} clinics match",
+    "sortLabel": "Sort",
+    "sorts": {
+      "relevance": "Relevance",
+      "rating": "Top rated",
+      "reviews": "Most reviewed"
+    },
+    "noReviews": "No reviews yet",
+    "viewDetail": "View details",
+    "compare": "Compare",
+    "compareOn": "Selected",
+    "end": "That's all {n} results · Clinic information is based on Naver Maps search.",
+    "prompt": "Enter an area or clinic name to search.",
+    "empty": "No clinics match. Try fewer filters, another area, or a Korean name.",
+    "error": "Search failed. Please try again in a moment.",
+    "compareBox": {
+      "eyebrow": "COMPARE · {n} SELECTED",
+      "title": "Comparing {n} clinics side by side",
+      "subtitle": "Based on reviews. Confirm actual treatment conditions with each clinic.",
+      "remove": "Remove ×",
+      "noData": "—",
+      "rows": {
+        "rating": "Rating / reviews",
+        "english": "Fluent English reviews",
+        "interpreter": "Interpreter/translation reviews",
+        "director": "Head doctor consulted reviews",
+        "price": "Price explained reviews",
+        "upselling": "No upselling reviews",
+        "address": "Address"
+      },
+      "footnote": "* Numbers are reviews that ticked the item / total reviews. Confirm actual support with the clinic.",
+      "detail": "View {name}",
+      "clear": "Clear selection",
+      "needTwo": "Select at least 2 clinics to compare."
+    },
+    "summary": {
+      "title": "{n} clinics to compare",
+      "empty": "Press “Compare” on a clinic card to pick up to 3.",
+      "hint": "The panel below lines up ratings, reviews and language support.",
+      "button": "Compare selected"
+    },
+    "notes": {
+      "checkTitle": "Before you choose",
+      "checkBody": "Reviews are personal experiences. Confirm treatment suitability, total cost, side effects and language support with the clinic.",
+      "rankTitle": "Search ranking",
+      "rankBody": "Results follow Naver Maps search order. There is no paid placement."
+    }
   },
   "login": {
     "eyebrow": "A MORE FAMILIAR WAY TO FIND CARE",

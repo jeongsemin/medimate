@@ -156,9 +156,87 @@
     }
   },
   "search": {
-    "loading": "검색 중…",
-    "empty": "검색 결과가 없습니다. 한국어 이름이나 다른 지역으로 검색해 보세요.",
-    "error": "검색에 실패했습니다. 다시 시도해 주세요."
+    "breadcrumb": "홈  /  병원 검색·비교",
+    "title": "“{q}” 검색 결과",
+    "titleEmpty": "병원 검색·비교",
+    "subtitle": "선택한 검색 조건을 유지했어요. 순서는 네이버 지도 검색 결과를 기준으로 합니다.",
+    "filters": "상세 필터",
+    "apply": "필터 적용",
+    "resetAll": "전체 초기화",
+    "any": "전체",
+    "groups": {
+      "area": "지역",
+      "treatment": "진료/시술",
+      "rating": "평점",
+      "reviews": "리뷰 수",
+      "support": "언어·상담 (리뷰 기준)"
+    },
+    "ratingOpts": [
+      "4.5 이상",
+      "4.0 이상"
+    ],
+    "reviewOpts": [
+      "10개 이상",
+      "5개 이상",
+      "1개 이상"
+    ],
+    "supportOpts": {
+      "english": "영어 유창",
+      "director": "원장 직접 상담"
+    },
+    "chips": {
+      "rating": "평점 {n}+",
+      "reviews": "리뷰 {n}개+",
+      "english": "영어",
+      "director": "원장 상담"
+    },
+    "count": "조건에 맞는 병원 {n}곳",
+    "sortLabel": "정렬",
+    "sorts": {
+      "relevance": "관련도순",
+      "rating": "평점순",
+      "reviews": "리뷰 많은순"
+    },
+    "noReviews": "아직 리뷰가 없어요",
+    "viewDetail": "상세 보기",
+    "compare": "비교",
+    "compareOn": "비교 선택됨",
+    "end": "{n}개 결과를 모두 확인했어요 · 병원 정보는 네이버 지도 검색을 바탕으로 합니다.",
+    "prompt": "지역이나 병원 이름을 입력해 검색해 보세요.",
+    "empty": "조건에 맞는 병원이 없습니다. 필터를 줄이거나 다른 지역·한국어 이름으로 검색해 보세요.",
+    "error": "검색에 실패했습니다. 잠시 후 다시 시도해 주세요.",
+    "compareBox": {
+      "eyebrow": "COMPARE · {n} SELECTED",
+      "title": "선택한 {n}곳, 나란히 비교",
+      "subtitle": "리뷰를 바탕으로 한 정보이며, 실제 진료 조건은 병원에 직접 확인하세요.",
+      "remove": "선택 해제 ×",
+      "noData": "—",
+      "rows": {
+        "rating": "평점 / 리뷰 수",
+        "english": "영어 유창 리뷰",
+        "interpreter": "통역·번역 지원 리뷰",
+        "director": "원장 직접 상담 리뷰",
+        "price": "시술 전 가격 안내 리뷰",
+        "upselling": "추가 시술 강요 없음 리뷰",
+        "address": "주소"
+      },
+      "footnote": "* 숫자는 해당 항목을 선택한 리뷰 수 / 전체 리뷰 수입니다. 실제 지원 여부는 병원에 직접 확인하세요.",
+      "detail": "{name} 상세 보기",
+      "clear": "비교 선택 비우기",
+      "needTwo": "비교하려면 병원을 2곳 이상 선택하세요."
+    },
+    "summary": {
+      "title": "비교할 병원 {n}곳",
+      "empty": "병원 카드의 ‘비교’를 눌러 최대 3곳을 골라보세요.",
+      "hint": "아래 비교 패널에서 평점·리뷰·언어 지원을 나란히 볼 수 있어요.",
+      "button": "선택한 병원 비교"
+    },
+    "notes": {
+      "checkTitle": "선택 전 꼭 확인하세요",
+      "checkBody": "리뷰는 개인의 경험입니다. 시술 적합성, 총 비용, 부작용 및 언어 지원 조건은 병원과 직접 확인하세요.",
+      "rankTitle": "검색 순위",
+      "rankBody": "검색 결과는 네이버 지도 검색 순서를 기준으로 하며 유료 노출은 없습니다."
+    }
   },
   "login": {
     "eyebrow": "A MORE FAMILIAR WAY TO FIND CARE",

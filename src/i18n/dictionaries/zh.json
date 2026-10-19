@@ -156,9 +156,87 @@
     }
   },
   "search": {
-    "loading": "搜索中…",
-    "empty": "未找到诊所。请尝试韩文名称或其他地区。",
-    "error": "搜索失败，请重试。"
+    "breadcrumb": "首页  /  搜索与比较",
+    "title": "“{q}”的搜索结果",
+    "titleEmpty": "搜索与比较诊所",
+    "subtitle": "已保留你选择的搜索条件。排序依据 Naver 地图搜索结果。",
+    "filters": "筛选条件",
+    "apply": "应用筛选",
+    "resetAll": "全部重置",
+    "any": "不限",
+    "groups": {
+      "area": "地区",
+      "treatment": "诊疗/项目",
+      "rating": "评分",
+      "reviews": "评价数",
+      "support": "语言与问诊（依据评价）"
+    },
+    "ratingOpts": [
+      "4.5 以上",
+      "4.0 以上"
+    ],
+    "reviewOpts": [
+      "10 条以上",
+      "5 条以上",
+      "1 条以上"
+    ],
+    "supportOpts": {
+      "english": "英语流利",
+      "director": "院长亲自问诊"
+    },
+    "chips": {
+      "rating": "评分 {n}+",
+      "reviews": "{n}条以上评价",
+      "english": "英语",
+      "director": "院长问诊"
+    },
+    "count": "符合条件的诊所 {n} 家",
+    "sortLabel": "排序",
+    "sorts": {
+      "relevance": "相关度",
+      "rating": "评分最高",
+      "reviews": "评价最多"
+    },
+    "noReviews": "暂无评价",
+    "viewDetail": "查看详情",
+    "compare": "比较",
+    "compareOn": "已选择比较",
+    "end": "已显示全部 {n} 条结果 · 诊所信息基于 Naver 地图搜索。",
+    "prompt": "请输入地区或诊所名称进行搜索。",
+    "empty": "没有符合条件的诊所。请减少筛选条件，或尝试其他地区、韩文名称。",
+    "error": "搜索失败，请稍后重试。",
+    "compareBox": {
+      "eyebrow": "COMPARE · {n} SELECTED",
+      "title": "并排比较所选的 {n} 家",
+      "subtitle": "基于评价的信息，实际诊疗条件请直接向诊所确认。",
+      "remove": "取消选择 ×",
+      "noData": "—",
+      "rows": {
+        "rating": "评分 / 评价数",
+        "english": "英语流利的评价",
+        "interpreter": "提供翻译/口译的评价",
+        "director": "院长亲自问诊的评价",
+        "price": "治疗前说明价格的评价",
+        "upselling": "未强推额外项目的评价",
+        "address": "地址"
+      },
+      "footnote": "* 数字为勾选该项的评价数 / 全部评价数。实际支持情况请直接向诊所确认。",
+      "detail": "查看{name}详情",
+      "clear": "清空比较选择",
+      "needTwo": "请至少选择 2 家诊所进行比较。"
+    },
+    "summary": {
+      "title": "待比较的诊所 {n} 家",
+      "empty": "点击诊所卡片上的“比较”，最多可选 3 家。",
+      "hint": "下方比较面板可并排查看评分、评价和语言支持。",
+      "button": "比较所选诊所"
+    },
+    "notes": {
+      "checkTitle": "选择前请确认",
+      "checkBody": "评价是个人体验。项目是否适合、总费用、副作用和语言支持条件请直接向诊所确认。",
+      "rankTitle": "搜索排序",
+      "rankBody": "搜索结果依据 Naver 地图搜索顺序，没有付费推广。"
+    }
   },
   "login": {
     "eyebrow": "A MORE FAMILIAR WAY TO FIND CARE",

@@ -17,7 +17,7 @@ import { hasLocale, localeNames, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { createClient } from "@/lib/supabase/server";
 import { Container } from "@/components/container";
-import { SearchForm, SearchResults } from "./search-box";
+import { SearchForm } from "@/components/search-form";
 
 const AREA_IMAGES = ["area-gangnam", "area-myeongdong", "area-hongdae", "area-busan"];
 const TREATMENT_ICONS = [Sparkles, Droplets, Sun, HeartPulse];
@@ -37,11 +37,9 @@ function SectionIntro({ eyebrow, title, subtitle }: { eyebrow: string; title: st
   );
 }
 
-export default async function HomePage({ params, searchParams }: PageProps<"/[lang]">) {
+export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
-  const sp = await searchParams;
-  const q = typeof sp.q === "string" ? sp.q : "";
   const dict = await getDictionary(lang);
   const h = dict.home;
 
@@ -115,8 +113,7 @@ export default async function HomePage({ params, searchParams }: PageProps<"/[la
             </figure>
           </div>
 
-          <SearchForm lang={lang} dict={dict} q={q} />
-          <SearchResults lang={lang} dict={dict} q={q} />
+          <SearchForm lang={lang} dict={dict} />
         </Container>
       </section>
 
@@ -127,7 +124,7 @@ export default async function HomePage({ params, searchParams }: PageProps<"/[la
           <ul className="grid grid-cols-2 gap-5 lg:grid-cols-4">
             {h.areas.items.map((a, i) => (
               <li key={a.q}>
-                <Link href={`/${lang}?q=${encodeURIComponent(a.q)}#results`} className="group block space-y-2.5">
+                <Link href={`/${lang}/search?area=${encodeURIComponent(a.q)}`} className="group block space-y-2.5">
                   <div className="relative h-[140px] overflow-hidden rounded-[14px] md:h-[185px]">
                     <Image
                       src={`/images/home/${AREA_IMAGES[i]}.jpg`}
@@ -156,7 +153,7 @@ export default async function HomePage({ params, searchParams }: PageProps<"/[la
               return (
                 <li key={t.q}>
                   <Link
-                    href={`/${lang}?q=${encodeURIComponent(`${t.q} 피부과`)}#results`}
+                    href={`/${lang}/search?treatment=${encodeURIComponent(t.q)}`}
                     className="flex items-center gap-4 rounded-[14px] bg-surface p-5 hover:bg-brand-soft"
                   >
                     <span className="flex size-10 shrink-0 items-center justify-center rounded-[12px] bg-white">
