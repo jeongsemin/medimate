@@ -6,7 +6,7 @@ export function StarRating({ value, size = "size-4" }: { value: number; size?: s
       {[1, 2, 3, 4, 5].map((n) => (
         <Star
           key={n}
-          className={`${size} ${n <= Math.round(value) ? "fill-amber-400 text-amber-400" : "text-border"}`}
+          className={`${size} ${n <= Math.round(value) ? "fill-star text-star" : "text-border"}`}
           aria-hidden
         />
       ))}

@@ -272,7 +272,63 @@
     "director": "院長が直接カウンセリング",
     "verified": "レシート認証済み",
     "visited": "来院日",
-    "treatment": "施術・診療"
+    "treatment": "施術・診療",
+    "detail": {
+      "breadcrumb": "クリニック検索  /  クリニック詳細",
+      "nav": {
+        "info": "クリニック情報",
+        "support": "言語・カウンセリング",
+        "reviews": "レビュー {n}"
+      },
+      "infoEyebrow": "クリニック情報 · NAVERマップ基準",
+      "infoTitle": "来院に必要な情報",
+      "infoSubtitle": "情報は変更されることがあるため、来院前にクリニックへご確認ください。",
+      "address": "住所",
+      "jibun": "地番住所",
+      "phone": "電話",
+      "category": "分類",
+      "mapTitle": "地図で見る",
+      "naverMap": "Naverマップで開く",
+      "googleMap": "Googleマップで開く",
+      "supportTitle": "外国語対応と、その方法も確認しましょう",
+      "supportSubtitle": "レビュー投稿者の回答をまとめたものです。",
+      "supportEmpty": "まだレビューがないため集計する情報がありません。レビューが集まるとここに表示されます。",
+      "supportRows": {
+        "english": "英語が流暢",
+        "interpreter": "通訳・翻訳対応",
+        "director": "院長が直接カウンセリング",
+        "price": "施術前の料金説明",
+        "upselling": "追加施術の押し売りなし"
+      },
+      "supportNote": "数字は該当項目を選んだレビュー数 / 全レビュー数です。サイトの表示言語とクリニックの実際の言語対応は別で、すべての時間帯の対応は保証されません。",
+      "reviewsEyebrow": "ユーザーの体験 · レシート認証済み",
+      "reviewsTitle": "ユーザーが残した体験",
+      "reviewsSubtitle": "レシートで来院を認証したユーザーの個人的な意見です。医療的な効果を検証・保証するものではありません。",
+      "reviewCount": "レビュー {n}件",
+      "filters": {
+        "all": "すべて",
+        "english": "英語が流暢",
+        "director": "院長対応"
+      },
+      "sorts": {
+        "latest": "新着順",
+        "high": "評価が高い順",
+        "low": "評価が低い順"
+      },
+      "visitMonth": "{ym} 来院",
+      "cardNote": "レシート認証済み · 個人の体験であり結果には個人差があります",
+      "more": "レビューをもっと見る",
+      "noMatch": "条件に合うレビューがありません。",
+      "medicalTitle": "医療的な判断はカウンセリングで",
+      "medicalBody": "施術の適合性、副作用、回復期間、代替案について医療スタッフと十分にご相談ください。MediMateは診断・治療や結果を保証しません。",
+      "ctaEyebrow": "レビューを書く",
+      "ctaTitle": "来院されましたか？",
+      "ctaBody": "レシートを撮影して来院を認証すると、率直な体験を残せます。",
+      "ctaButton": "レビューを書く",
+      "ctaNote": "レシートは非公開で保存され、認証にのみ使用されます。",
+      "sourceTitle": "情報の出典",
+      "sourceBody": "名称・住所・電話番号はNaverマップの検索情報に基づき、変更されることがあります。"
+    }
   },
   "review": {
     "title": "レビューを書く",

@@ -272,7 +272,63 @@
     "director": "院长亲自问诊",
     "verified": "小票已验证",
     "visited": "就诊日期",
-    "treatment": "项目"
+    "treatment": "项目",
+    "detail": {
+      "breadcrumb": "诊所搜索  /  诊所详情",
+      "nav": {
+        "info": "诊所信息",
+        "support": "语言与问诊",
+        "reviews": "评价 {n}"
+      },
+      "infoEyebrow": "诊所信息 · 依据 NAVER 地图",
+      "infoTitle": "就诊所需信息",
+      "infoSubtitle": "信息可能变更，就诊前请再次向诊所确认。",
+      "address": "地址",
+      "jibun": "地号地址",
+      "phone": "电话",
+      "category": "分类",
+      "mapTitle": "在地图上查看",
+      "naverMap": "在 Naver 地图中打开",
+      "googleMap": "在 Google 地图中打开",
+      "supportTitle": "确认外语支持及其方式",
+      "supportSubtitle": "汇总自评价者的回答。",
+      "supportEmpty": "暂无评价，因此没有可汇总的信息。评价增加后会显示在这里。",
+      "supportRows": {
+        "english": "英语流利",
+        "interpreter": "提供翻译/口译",
+        "director": "院长亲自问诊",
+        "price": "治疗前说明价格",
+        "upselling": "未强推额外项目"
+      },
+      "supportNote": "数字为勾选该项的评价数 / 全部评价数。网站显示语言与诊所实际的语言支持不同，且不保证所有时段都有支持。",
+      "reviewsEyebrow": "用户体验 · 小票已验证",
+      "reviewsTitle": "用户留下的体验",
+      "reviewsSubtitle": "这是用小票证明就诊的用户的个人意见，不代表也不保证任何医疗效果。",
+      "reviewCount": "{n} 条评价",
+      "filters": {
+        "all": "全部",
+        "english": "英语流利",
+        "director": "院长问诊"
+      },
+      "sorts": {
+        "latest": "最新",
+        "high": "评分从高到低",
+        "low": "评分从低到高"
+      },
+      "visitMonth": "{ym} 就诊",
+      "cardNote": "小票已验证 · 个人体验，效果因人而异",
+      "more": "查看更多评价",
+      "noMatch": "没有符合条件的评价。",
+      "medicalTitle": "医疗决定需通过问诊",
+      "medicalBody": "请与医务人员充分沟通项目是否适合、副作用、恢复时间和替代方案。MediMate 不保证诊断、治疗或结果。",
+      "ctaEyebrow": "撰写评价",
+      "ctaTitle": "你来过这里吗？",
+      "ctaBody": "拍下小票验证就诊，即可分享你的真实体验。",
+      "ctaButton": "撰写评价",
+      "ctaNote": "小票将被私密保存，仅用于验证。",
+      "sourceTitle": "信息来源",
+      "sourceBody": "名称、地址和电话来自 Naver 地图搜索信息，可能会变更。"
+    }
   },
   "review": {
     "title": "撰写评价",

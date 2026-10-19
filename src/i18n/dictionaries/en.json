@@ -272,7 +272,63 @@
     "director": "Head doctor consults",
     "verified": "Receipt verified",
     "visited": "Visited",
-    "treatment": "Treatment"
+    "treatment": "Treatment",
+    "detail": {
+      "breadcrumb": "Clinic search  /  Clinic details",
+      "nav": {
+        "info": "Clinic info",
+        "support": "Language & care",
+        "reviews": "Reviews {n}"
+      },
+      "infoEyebrow": "CLINIC INFO · BASED ON NAVER MAPS",
+      "infoTitle": "What you need for your visit",
+      "infoSubtitle": "Details can change, so confirm with the clinic before you go.",
+      "address": "Address",
+      "jibun": "Lot-number address",
+      "phone": "Phone",
+      "category": "Category",
+      "mapTitle": "View on a map",
+      "naverMap": "Open in Naver Maps",
+      "googleMap": "Open in Google Maps",
+      "supportTitle": "Check language support, and how it works",
+      "supportSubtitle": "A summary of what reviewers reported.",
+      "supportEmpty": "No reviews yet, so there is nothing to summarize. It will appear here as reviews come in.",
+      "supportRows": {
+        "english": "Fluent English",
+        "interpreter": "Interpreter / translation",
+        "director": "Head doctor consults",
+        "price": "Price explained first",
+        "upselling": "No upselling"
+      },
+      "supportNote": "Numbers are reviews that ticked the item / total reviews. The site's display language is separate from the clinic's actual language support, which isn't guaranteed at all hours.",
+      "reviewsEyebrow": "USER EXPERIENCES · RECEIPT-VERIFIED",
+      "reviewsTitle": "Experiences shared by users",
+      "reviewsSubtitle": "Personal opinions from users who proved their visit with a receipt. They don't verify or guarantee medical outcomes.",
+      "reviewCount": "{n} reviews",
+      "filters": {
+        "all": "All",
+        "english": "Fluent English",
+        "director": "Head doctor"
+      },
+      "sorts": {
+        "latest": "Newest",
+        "high": "Highest rated",
+        "low": "Lowest rated"
+      },
+      "visitMonth": "Visited {ym}",
+      "cardNote": "Receipt-verified · Personal experience, results may vary",
+      "more": "Show more reviews",
+      "noMatch": "No reviews match.",
+      "medicalTitle": "Medical decisions start with a consultation",
+      "medicalBody": "Discuss suitability, side effects, recovery time and alternatives with the medical staff. MediMate does not guarantee diagnosis, treatment or results.",
+      "ctaEyebrow": "WRITE A REVIEW",
+      "ctaTitle": "Have you visited?",
+      "ctaBody": "Photograph your receipt to verify your visit and share your honest experience.",
+      "ctaButton": "Write a review",
+      "ctaNote": "Your receipt is stored privately and used only for verification.",
+      "sourceTitle": "Information source",
+      "sourceBody": "Name, address and phone number come from Naver Maps search and may change."
+    }
   },
   "review": {
     "title": "Write a review",

@@ -272,7 +272,63 @@
     "director": "원장 직접 상담",
     "verified": "영수증 인증",
     "visited": "방문일",
-    "treatment": "시술/진료"
+    "treatment": "시술/진료",
+    "detail": {
+      "breadcrumb": "병원 검색  /  병원 상세",
+      "nav": {
+        "info": "병원 정보",
+        "support": "언어·상담",
+        "reviews": "리뷰 {n}"
+      },
+      "infoEyebrow": "병원 정보 · 네이버 지도 기준",
+      "infoTitle": "방문에 필요한 정보",
+      "infoSubtitle": "정보는 변경될 수 있으니 방문 전 병원에 다시 확인하세요.",
+      "address": "주소",
+      "jibun": "지번 주소",
+      "phone": "전화",
+      "category": "분류",
+      "mapTitle": "지도에서 보기",
+      "naverMap": "네이버 지도에서 열기",
+      "googleMap": "구글 지도에서 열기",
+      "supportTitle": "외국어 지원, 방식까지 확인하세요",
+      "supportSubtitle": "리뷰 작성자가 남긴 응답을 모은 것입니다.",
+      "supportEmpty": "아직 리뷰가 없어 집계할 정보가 없어요. 리뷰가 쌓이면 여기에 표시됩니다.",
+      "supportRows": {
+        "english": "영어 유창",
+        "interpreter": "통역·번역 지원",
+        "director": "원장 직접 상담",
+        "price": "시술 전 가격 안내",
+        "upselling": "추가 시술 강요 없음"
+      },
+      "supportNote": "숫자는 해당 항목을 선택한 리뷰 수 / 전체 리뷰 수입니다. 사이트 표시 언어와 병원의 실제 언어 지원은 다르며, 모든 시간대의 지원을 보장하지 않습니다.",
+      "reviewsEyebrow": "사용자 경험 · 영수증 인증 리뷰",
+      "reviewsTitle": "사용자가 남긴 경험",
+      "reviewsSubtitle": "영수증으로 방문을 인증한 사용자의 개인적 의견입니다. 의료적 효과를 검증하거나 보장하지 않습니다.",
+      "reviewCount": "리뷰 {n}개",
+      "filters": {
+        "all": "전체",
+        "english": "영어 유창",
+        "director": "원장 상담"
+      },
+      "sorts": {
+        "latest": "최신순",
+        "high": "평점 높은순",
+        "low": "평점 낮은순"
+      },
+      "visitMonth": "{ym} 방문",
+      "cardNote": "영수증 인증 · 개인의 경험이며 결과는 다를 수 있어요",
+      "more": "리뷰 더 보기",
+      "noMatch": "조건에 맞는 리뷰가 없어요.",
+      "medicalTitle": "의료적 결정은 상담을 통해",
+      "medicalBody": "시술 적합성, 부작용, 회복 기간, 대안을 의료진과 충분히 상담하세요. MediMate는 진단·치료 또는 결과를 보장하지 않습니다.",
+      "ctaEyebrow": "리뷰 작성",
+      "ctaTitle": "방문하셨나요?",
+      "ctaBody": "영수증을 촬영해 방문을 인증하면 솔직한 경험을 남길 수 있어요.",
+      "ctaButton": "리뷰 작성하기",
+      "ctaNote": "영수증은 비공개로 저장되며 인증에만 사용됩니다.",
+      "sourceTitle": "정보 출처",
+      "sourceBody": "병원 이름·주소·전화번호는 네이버 지도 검색 정보를 바탕으로 하며 변경될 수 있습니다."
+    }
   },
   "review": {
     "title": "리뷰 작성",
