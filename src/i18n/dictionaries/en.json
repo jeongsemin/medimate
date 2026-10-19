@@ -161,10 +161,24 @@
     "error": "Search failed. Please try again."
   },
   "login": {
-    "title": "Sign in to MediMate",
-    "subtitle": "Sign in to write a verified review.",
+    "eyebrow": "A MORE FAMILIAR WAY TO FIND CARE",
+    "headline": [
+      "Welcome back.",
+      "Pick up where",
+      "you left off."
+    ],
+    "intro": [
+      "Prove your visit with a receipt, share your honest experience,",
+      "and gather the information you need in your language."
+    ],
+    "guest": [
+      "You can browse clinics and reviews without signing in.",
+      "Signing in is only needed to write a review."
+    ],
+    "title": "Sign in",
+    "subtitle": "Continue with Google. A new account is created automatically the first time.",
     "google": "Continue with Google",
-    "failed": "Sign-in failed. Please try again.",
+    "failed": "Sign-in failed. Please try again in a moment.",
     "note": "We only use your name and profile photo."
   },
   "hospital": {

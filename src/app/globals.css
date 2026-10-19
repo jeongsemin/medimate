@@ -15,6 +15,7 @@
   --surface: #f3f6f5; /* hero, treatment cards, footer */
   --deep: #153a42; /* language banner */
   --star: #9f6f22;
+  --error-soft: #fff2f0;
 }
 
 @theme inline {
@@ -31,6 +32,7 @@
   --color-surface: var(--surface);
   --color-deep: var(--deep);
   --color-star: var(--star);
+  --color-error-soft: var(--error-soft);
 
   --radius-sm: 8px;
   --radius-md: 16px;

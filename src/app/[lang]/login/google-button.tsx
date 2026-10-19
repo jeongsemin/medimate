@@ -20,7 +20,7 @@ export function GoogleButton({ lang, next, label }: { lang: string; next: string
     <button
       onClick={signIn}
       disabled={busy}
-      className="mt-6 flex w-full items-center justify-center gap-3 rounded-full border border-border bg-white px-4 py-2.5 font-medium text-neutral-800 shadow-sm hover:bg-neutral-50 disabled:opacity-60"
+      className="flex min-h-12 w-full items-center justify-center gap-3 rounded-sm border border-border bg-white px-5 py-3 text-sm font-bold text-brand hover:bg-brand-soft disabled:opacity-60"
     >
       <svg viewBox="0 0 48 48" className="size-5" aria-hidden>
         <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z" />

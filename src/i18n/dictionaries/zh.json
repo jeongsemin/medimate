@@ -161,10 +161,24 @@
     "error": "搜索失败，请重试。"
   },
   "login": {
-    "title": "登录 MediMate",
-    "subtitle": "登录后即可撰写经验证的评价。",
+    "eyebrow": "A MORE FAMILIAR WAY TO FIND CARE",
+    "headline": [
+      "欢迎回来。",
+      "从上次浏览的地方",
+      "继续开始吧。"
+    ],
+    "intro": [
+      "用小票证明就诊，分享真实体验，",
+      "并用你的语言收集所需信息。"
+    ],
+    "guest": [
+      "无需登录也可以浏览诊所和评价。",
+      "仅在撰写评价时需要登录。"
+    ],
+    "title": "登录",
+    "subtitle": "使用 Google 账号继续。首次使用将自动创建账号。",
     "google": "使用 Google 继续",
-    "failed": "登录失败，请重试。",
+    "failed": "登录失败，请稍后重试。",
     "note": "我们仅使用你的姓名和头像。"
   },
   "hospital": {
