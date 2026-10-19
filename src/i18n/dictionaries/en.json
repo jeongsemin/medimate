@@ -8,22 +8,152 @@
     "my": "My page",
     "admin": "Admin",
     "login": "Sign in",
-    "logout": "Sign out"
+    "logout": "Sign out",
+    "find": "Find clinics"
   },
   "home": {
-    "title": "Find Korean clinics that travelers actually trust",
-    "subtitle": "Every review comes with a verified receipt, so you know it's from a real patient.",
-    "placeholder": "Clinic name or area, e.g. Gangnam",
+    "eyebrow": "YOUR CARE, YOUR WAY IN KOREA",
+    "title": [
+      "Care that fits you,",
+      "even far from home."
+    ],
+    "subtitle": [
+      "From neighborhood and specialty to English support.",
+      "Read verified reviews and choose with more confidence."
+    ],
+    "values": [
+      "Receipt-verified reviews",
+      "Browse in your language"
+    ],
+    "photoPlace": "SEOUL, SOUTH KOREA",
+    "photoNote": "Illustrative photo",
+    "searchLabel": "AREA · CLINIC · TREATMENT",
+    "placeholder": "Which area, and what kind of care?",
+    "searchBtn": "Search clinics",
     "hint": "Korean names and areas (강남, 압구정) give the best results.",
-    "search": "Search",
-    "typeAll": "Hospitals & clinics",
-    "typeDerm": "Dermatology",
-    "howTitle": "How it works",
-    "steps": [
-      { "title": "Sign in with Google", "body": "One click, no new password." },
-      { "title": "Search a clinic", "body": "Find hospitals and dermatology clinics on Naver Maps." },
-      { "title": "Verify & review", "body": "Snap your receipt to prove your visit, then share your honest experience." }
-    ]
+    "popular": "Popular searches",
+    "featured": {
+      "eyebrow": "A CLOSER LOOK",
+      "title": "Clinics with the most reviews",
+      "subtitle": "Ranked by the number of receipt-verified reviews. This is not a medical recommendation.",
+      "reviews": "reviews",
+      "english": "Fluent English",
+      "director": "Head doctor"
+    },
+    "latest": {
+      "eyebrow": "EXPERIENCES, NOT PROMISES",
+      "title": "Read what others experienced",
+      "subtitle": "Personal experiences that help with questions before you visit.",
+      "note": "Receipt-verified · Personal experience, results may vary"
+    },
+    "language": {
+      "eyebrow": "CARE WITHOUT THE GUESSWORK",
+      "title": [
+        "Whatever your language,",
+        "information stays easy."
+      ],
+      "body": "Browse in 한국어, English, 日本語 or 中文. Site language and a clinic's actual interpreters or English-speaking staff are listed separately."
+    },
+    "transparency": {
+      "eyebrow": "KNOW WHAT YOU'RE READING",
+      "title": "Clear about what each piece of information is",
+      "subtitle": "We separate sources and never promise what can't be verified.",
+      "items": [
+        {
+          "title": "Clinic information",
+          "body": "Names, addresses and phone numbers come from Naver Maps search. Treatments, prices, hours and language support should be confirmed with the clinic."
+        },
+        {
+          "title": "Visitor experiences",
+          "body": "Reviews are personal experiences from people who proved their visit with a receipt. They do not verify or guarantee any medical outcome."
+        },
+        {
+          "title": "What you should confirm",
+          "body": "Check the final cost, side effects, recovery time and interpreter conditions directly with the clinic before treatment."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Questions before you review",
+      "items": [
+        {
+          "q": "Why do I need to upload a receipt?",
+          "a": "It proves you actually visited, so every review comes from a real patient."
+        },
+        {
+          "q": "Can other users see my receipt?",
+          "a": "No. Receipts are stored privately and used only for verification."
+        },
+        {
+          "q": "What if automatic verification fails?",
+          "a": "Your receipt goes to a manual review queue. You can write your review once it is approved."
+        }
+      ]
+    },
+    "popularQueries": [
+      {
+        "label": "Gangnam dermatology",
+        "q": "강남 피부과"
+      },
+      {
+        "label": "Apgujeong dermatology",
+        "q": "압구정 피부과"
+      },
+      {
+        "label": "Hongdae dermatology",
+        "q": "홍대 피부과"
+      }
+    ],
+    "areas": {
+      "eyebrow": "EXPLORE BY NEIGHBORHOOD",
+      "title": "Where are you looking for care?",
+      "subtitle": "Find clinics close to where you stay or travel.",
+      "items": [
+        {
+          "name": "Gangnam",
+          "q": "강남",
+          "desc": "Wide range of dermatology"
+        },
+        {
+          "name": "Myeongdong",
+          "q": "명동",
+          "desc": "Close to your itinerary"
+        },
+        {
+          "name": "Hongdae",
+          "q": "홍대",
+          "desc": "Between daily life and travel"
+        },
+        {
+          "name": "Busan",
+          "q": "부산",
+          "desc": "Care by the sea"
+        }
+      ]
+    },
+    "treatments": {
+      "eyebrow": "FIND YOUR TREATMENT",
+      "title": "Start with what interests you",
+      "subtitle": "Treatment names are a search aid, not personal medical advice.",
+      "items": [
+        {
+          "name": "Laser toning",
+          "q": "레이저 토닝"
+        },
+        {
+          "name": "Hydration care",
+          "q": "수분 관리"
+        },
+        {
+          "name": "Pigmentation consult",
+          "q": "색소 상담"
+        },
+        {
+          "name": "General skin care",
+          "q": "피부 진료"
+        }
+      ]
+    }
   },
   "search": {
     "loading": "Searching…",
@@ -75,7 +205,11 @@
     "treatment": "Treatment (optional)",
     "categories": "Details travelers care about",
     "english": "English support",
-    "englishOptions": { "none": "None", "basic": "Basic", "fluent": "Fluent" },
+    "englishOptions": {
+      "none": "None",
+      "basic": "Basic",
+      "fluent": "Fluent"
+    },
     "interpreter": "Interpreter / translation available",
     "director": "The head doctor gave the consultation personally",
     "priceExplained": "Price was explained before treatment",
@@ -121,5 +255,12 @@
     "viewImage": "Receipt image",
     "score": "Name match"
   },
-  "common": { "lang": "Language", "back": "Back" }
+  "common": {
+    "lang": "Language",
+    "back": "Back"
+  },
+  "footer": {
+    "disclaimer": "MediMate helps you browse medical information and does not replace diagnosis or treatment. Confirm actual treatment, prices and booking conditions directly with the clinic.",
+    "meta": "© 2026 MediMate"
+  }
 }

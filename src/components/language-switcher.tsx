@@ -1,7 +1,7 @@
 "use client";
 
-import { usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { Globe } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { locales, localeNames, type Locale } from "@/i18n/config";
 
@@ -16,18 +16,21 @@ function Select({ current, label }: { current: Locale; label: string }) {
   }
 
   return (
-    <select
-      aria-label={label}
-      value={current}
-      onChange={(e) => change(e.target.value)}
-      className="rounded-md border border-border bg-card px-2 py-1 text-sm"
-    >
-      {locales.map((l) => (
-        <option key={l} value={l}>
-          {localeNames[l]}
-        </option>
-      ))}
-    </select>
+    <label className="flex items-center gap-1.5">
+      <Globe className="size-[18px]" aria-hidden />
+      <select
+        aria-label={label}
+        value={current}
+        onChange={(e) => change(e.target.value)}
+        className="cursor-pointer bg-transparent text-xs"
+      >
+        {locales.map((l) => (
+          <option key={l} value={l}>
+            {localeNames[l]}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 }
 

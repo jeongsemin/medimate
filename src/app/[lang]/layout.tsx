@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { Inter, Noto_Sans_JP, Noto_Sans_KR, Noto_Sans_SC } from "next/font/google";
 import "../globals.css";
 import { hasLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const notoKr = Noto_Sans_KR({ weight: ["400", "500", "700"], variable: "--font-noto-kr", display: "swap", preload: false });
+const notoJp = Noto_Sans_JP({ weight: ["400", "500", "700"], variable: "--font-noto-jp", display: "swap", preload: false });
+const notoSc = Noto_Sans_SC({ weight: ["400", "500", "700"], variable: "--font-noto-sc", display: "swap", preload: false });
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -23,15 +30,16 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   const dict = await getDictionary(lang);
 
   return (
-    <html lang={lang === "zh" ? "zh-CN" : lang}>
+    <html
+      lang={lang === "zh" ? "zh-CN" : lang}
+      className={`${inter.variable} ${notoKr.variable} ${notoJp.variable} ${notoSc.variable}`}
+    >
       <body className="min-h-dvh flex flex-col">
-        <Suspense fallback={<div className="h-14 border-b border-border" />}>
+        <Suspense fallback={<div className="h-[72px] border-b border-border md:h-[88px]" />}>
           <Header lang={lang} dict={dict} />
         </Suspense>
-        <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">{children}</main>
-        <footer className="border-t border-border py-6 text-center text-xs text-muted">
-          © MediMate
-        </footer>
+        <main className="flex-1">{children}</main>
+        <Footer lang={lang} dict={dict} />
       </body>
     </html>
   );

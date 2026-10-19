@@ -8,22 +8,152 @@
     "my": "我的",
     "admin": "管理",
     "login": "登录",
-    "logout": "退出登录"
+    "logout": "退出登录",
+    "find": "查找诊所"
   },
   "home": {
-    "title": "找到游客真正信赖的韩国诊所",
-    "subtitle": "每条评价都附有经验证的小票，确保来自真实就诊的用户。",
-    "placeholder": "诊所名称或地区，例如：江南",
+    "eyebrow": "YOUR CARE, YOUR WAY IN KOREA",
+    "title": [
+      "身在异乡，",
+      "也能找到适合你的诊疗。"
+    ],
+    "subtitle": [
+      "从地区、科室到是否支持英语。",
+      "阅读经过验证的评价，更安心地做选择。"
+    ],
+    "values": [
+      "小票验证的评价",
+      "用你的语言浏览"
+    ],
+    "photoPlace": "SEOUL, SOUTH KOREA",
+    "photoNote": "示意照片",
+    "searchLabel": "地区 · 诊所 · 项目",
+    "placeholder": "想在哪个地区，看什么科？",
+    "searchBtn": "搜索诊所",
     "hint": "使用韩文名称或地区（강남、압구정）搜索结果最准确。",
-    "search": "搜索",
-    "typeAll": "医院与诊所",
-    "typeDerm": "皮肤科",
-    "howTitle": "使用方法",
-    "steps": [
-      { "title": "使用 Google 登录", "body": "一键登录，无需新密码。" },
-      { "title": "搜索诊所", "body": "在 Naver 地图上查找医院和皮肤科。" },
-      { "title": "验证并评价", "body": "拍下小票证明就诊，然后分享你的真实体验。" }
-    ]
+    "popular": "热门搜索",
+    "featured": {
+      "eyebrow": "A CLOSER LOOK",
+      "title": "评价最多的诊所",
+      "subtitle": "按小票验证评价的数量排序，并非医疗推荐。",
+      "reviews": "评价",
+      "english": "英语流利",
+      "director": "院长问诊"
+    },
+    "latest": {
+      "eyebrow": "EXPERIENCES, NOT PROMISES",
+      "title": "看看其他人的真实体验",
+      "subtitle": "比起承诺效果的话，更有助于就诊前解答疑问的经验。",
+      "note": "小票已验证 · 个人体验，效果因人而异"
+    },
+    "language": {
+      "eyebrow": "CARE WITHOUT THE GUESSWORK",
+      "title": [
+        "语言不同，",
+        "信息依然轻松。"
+      ],
+      "body": "可用 한국어、English、日本語、中文浏览。网站语言与诊所实际的翻译、常驻人员会分开说明。"
+    },
+    "transparency": {
+      "eyebrow": "KNOW WHAT YOU'RE READING",
+      "title": "每条信息是什么，清清楚楚",
+      "subtitle": "区分来源与性质，不承诺无法确认的事实。",
+      "items": [
+        {
+          "title": "诊所信息",
+          "body": "名称、地址和电话来自 Naver 地图搜索信息。诊疗、价格、营业时间和语言支持请直接向诊所确认。"
+        },
+        {
+          "title": "就诊者体验",
+          "body": "评价来自用小票证明就诊的用户的个人体验，不代表也不保证任何医疗效果。"
+        },
+        {
+          "title": "你需要确认的信息",
+          "body": "最终费用、副作用、恢复时间和翻译条件，请在治疗前直接向诊所确认。"
+        }
+      ]
+    },
+    "faq": {
+      "title": "撰写评价前的常见问题",
+      "items": [
+        {
+          "q": "为什么要上传小票？",
+          "a": "用于证明你确实就诊过，确保每条评价都来自真实患者。"
+        },
+        {
+          "q": "其他用户能看到我的小票吗？",
+          "a": "不能。小票私密保存，仅用于验证。"
+        },
+        {
+          "q": "自动验证失败怎么办？",
+          "a": "会进入人工审核队列，通过后即可撰写评价。"
+        }
+      ]
+    },
+    "popularQueries": [
+      {
+        "label": "江南皮肤科",
+        "q": "강남 피부과"
+      },
+      {
+        "label": "狎鸥亭皮肤科",
+        "q": "압구정 피부과"
+      },
+      {
+        "label": "弘大皮肤科",
+        "q": "홍대 피부과"
+      }
+    ],
+    "areas": {
+      "eyebrow": "EXPLORE BY NEIGHBORHOOD",
+      "title": "想在哪里找诊所？",
+      "subtitle": "在你住宿或旅行的附近查找。",
+      "items": [
+        {
+          "name": "江南",
+          "q": "강남",
+          "desc": "皮肤科与项目丰富"
+        },
+        {
+          "name": "明洞",
+          "q": "명동",
+          "desc": "靠近旅行路线"
+        },
+        {
+          "name": "弘大",
+          "q": "홍대",
+          "desc": "日常与旅行之间"
+        },
+        {
+          "name": "釜山",
+          "q": "부산",
+          "desc": "海边的诊疗"
+        }
+      ]
+    },
+    "treatments": {
+      "eyebrow": "FIND YOUR TREATMENT",
+      "title": "从感兴趣的项目轻松开始",
+      "subtitle": "项目名称仅作搜索参考，并非个人医疗建议。",
+      "items": [
+        {
+          "name": "激光美白",
+          "q": "레이저 토닝"
+        },
+        {
+          "name": "补水护理",
+          "q": "수분 관리"
+        },
+        {
+          "name": "色素咨询",
+          "q": "색소 상담"
+        },
+        {
+          "name": "常规皮肤诊疗",
+          "q": "피부 진료"
+        }
+      ]
+    }
   },
   "search": {
     "loading": "搜索中…",
@@ -75,7 +205,11 @@
     "treatment": "项目（选填）",
     "categories": "游客关心的细节",
     "english": "英语服务",
-    "englishOptions": { "none": "不支持", "basic": "基础沟通", "fluent": "流利" },
+    "englishOptions": {
+      "none": "不支持",
+      "basic": "基础沟通",
+      "fluent": "流利"
+    },
     "interpreter": "提供翻译/口译",
     "director": "由院长亲自问诊",
     "priceExplained": "治疗前说明了价格",
@@ -121,5 +255,12 @@
     "viewImage": "小票图片",
     "score": "名称匹配度"
   },
-  "common": { "lang": "语言", "back": "返回" }
+  "common": {
+    "lang": "语言",
+    "back": "返回"
+  },
+  "footer": {
+    "disclaimer": "MediMate 是帮助浏览医疗信息的服务，不能替代诊断或治疗。实际诊疗、价格和预约条件请直接向诊所确认。",
+    "meta": "© 2026 MediMate"
+  }
 }

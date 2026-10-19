@@ -1,14 +1,20 @@
 @import "tailwindcss";
 
+/* Design tokens from Figma: Medimate / Design system · Foundations */
 :root {
-  --background: #f7fafb;
-  --foreground: #14232b;
-  --muted: #5d6f78;
+  --background: #fafbfa; /* Canvas */
+  --foreground: #172f35; /* Ink */
+  --muted: #63767b;
   --card: #ffffff;
-  --border: #dbe5e9;
-  --brand: #0e8f87;
-  --brand-strong: #0a6e68;
-  --brand-soft: #e3f4f2;
+  --border: #dce5e4;
+  --brand: #087f83; /* Accent */
+  --brand-strong: #066669; /* Accent, pressed/hover */
+  --brand-soft: #eaf5f3; /* Tint */
+  --focus: #177dc1;
+  --error: #b33b36;
+  --surface: #f3f6f5; /* hero, treatment cards, footer */
+  --deep: #153a42; /* language banner */
+  --star: #9f6f22;
 }
 
 @theme inline {
@@ -20,25 +26,29 @@
   --color-brand: var(--brand);
   --color-brand-strong: var(--brand-strong);
   --color-brand-soft: var(--brand-soft);
-}
+  --color-focus: var(--focus);
+  --color-error: var(--error);
+  --color-surface: var(--surface);
+  --color-deep: var(--deep);
+  --color-star: var(--star);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0d171c;
-    --foreground: #e8f0f3;
-    --muted: #93a5ad;
-    --card: #14232b;
-    --border: #243842;
-    --brand: #2fc4b9;
-    --brand-strong: #5fd8cf;
-    --brand-soft: #123a3b;
-  }
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --font-sans:
+    var(--font-inter), var(--font-noto-kr), var(--font-noto-jp),
+    var(--font-noto-sc), system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family:
-    system-ui, -apple-system, "Segoe UI", "Noto Sans", "Noto Sans JP",
-    "Noto Sans SC", "Malgun Gothic", sans-serif;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
 }

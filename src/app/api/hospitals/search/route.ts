@@ -1,65 +1,11 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { createAdminClient } from "@/lib/supabase/admin";
-import { isMedical, toCandidate, type NaverLocalItem } from "@/lib/naver-local";
-
-const KEYWORD = { all: "병원", derm: "피부과" } as const;
+import { searchHospitals } from "@/lib/hospital-search";
 
 export async function GET(request: NextRequest) {
-  const q = (request.nextUrl.searchParams.get("q") ?? "").trim().slice(0, 50);
+  const q = request.nextUrl.searchParams.get("q") ?? "";
   const type = request.nextUrl.searchParams.get("type") === "derm" ? "derm" : "all";
-  if (q.length < 1) return NextResponse.json({ results: [] });
-
-  const id = process.env.NAVER_SEARCH_CLIENT_ID;
-  const secret = process.env.NAVER_SEARCH_CLIENT_SECRET;
-  if (!id || !secret) {
-    return NextResponse.json({ error: "search_not_configured" }, { status: 503 });
-  }
-
-  // Don't append the keyword twice if the user already typed it.
-  const query = q.includes(KEYWORD[type]) ? q : `${q} ${KEYWORD[type]}`;
-  const url = new URL("https://openapi.naver.com/v1/search/local.json");
-  url.searchParams.set("query", query);
-  url.searchParams.set("display", "5"); // the API caps local search at 5 results
-  url.searchParams.set("sort", "comment");
-
-  let items: NaverLocalItem[];
-  try {
-    const res = await fetch(url, {
-      headers: { "X-Naver-Client-Id": id, "X-Naver-Client-Secret": secret },
-      signal: AbortSignal.timeout(8_000),
-      cache: "no-store",
-    });
-    if (!res.ok) return NextResponse.json({ error: "upstream" }, { status: 502 });
-    items = ((await res.json()).items ?? []) as NaverLocalItem[];
-  } catch {
-    return NextResponse.json({ error: "upstream" }, { status: 502 });
-  }
-
-  const candidates = items.filter(isMedical).map(toCandidate);
-  if (candidates.length === 0) return NextResponse.json({ results: [] });
-
-  const admin = createAdminClient();
-  const { data: hospitals, error } = await admin
-    .from("hospitals")
-    .upsert(candidates, { onConflict: "external_id" })
-    .select("id, name, category, address, road_address");
-  if (error || !hospitals) return NextResponse.json({ error: "db" }, { status: 500 });
-
-  const { data: stats } = await admin
-    .from("hospital_stats")
-    .select("hospital_id, review_count, avg_rating")
-    .in("hospital_id", hospitals.map((h) => h.id));
-  const byId = new Map((stats ?? []).map((s) => [s.hospital_id, s]));
-
-  // keep Naver's ordering
-  const order = new Map(candidates.map((c, i) => [c.name, i]));
-  hospitals.sort((a, b) => (order.get(a.name) ?? 0) - (order.get(b.name) ?? 0));
-
-  return NextResponse.json({
-    results: hospitals.map((h) => ({
-      ...h,
-      review_count: byId.get(h.id)?.review_count ?? 0,
-      avg_rating: byId.get(h.id)?.avg_rating ?? null,
-    })),
-  });
+  const outcome = await searchHospitals(q, type);
+  if (outcome.ok) return NextResponse.json({ results: outcome.results });
+  const status = outcome.error === "not_configured" ? 503 : outcome.error === "upstream" ? 502 : 500;
+  return NextResponse.json({ error: outcome.error }, { status });
 }
