@@ -386,12 +386,62 @@
     "ocr_unavailable": "자동 확인을 사용할 수 없음"
   },
   "my": {
-    "title": "내 영수증",
-    "empty": "아직 업로드한 영수증이 없습니다.",
-    "statusLabel": "상태",
-    "writeReview": "리뷰 작성",
-    "reviewed": "리뷰 완료",
-    "reason": "사유"
+    "breadcrumb": "마이페이지",
+    "title": "{name}님, 탐색을 이어가세요.",
+    "subtitle": "영수증 인증 현황과 작성한 경험을 한곳에서 관리해요.",
+    "nav": {
+      "activity": "내 활동",
+      "receipts": "영수증 · {n}",
+      "reviews": "작성한 리뷰 · {n}",
+      "account": "계정 관리",
+      "language": "언어 설정",
+      "logout": "로그아웃"
+    },
+    "receipts": {
+      "title": "영수증 인증",
+      "subtitle": "업로드한 영수증의 인증 상태예요. 영수증 사진은 비공개로 보관됩니다.",
+      "empty": "아직 업로드한 영수증이 없어요. 병원을 찾아 방문을 인증해 보세요.",
+      "find": "병원 찾기",
+      "reason": "사유",
+      "write": "리뷰 작성하기",
+      "reviewed": "리뷰 완료",
+      "uploadedOn": "업로드",
+      "statusLabels": {
+        "pending": "검토 중",
+        "auto_approved": "자동 인증",
+        "approved": "승인됨",
+        "rejected": "반려됨"
+      }
+    },
+    "reviews": {
+      "title": "작성한 리뷰",
+      "find": "리뷰 쓸 병원 찾기",
+      "empty": "아직 작성한 리뷰가 없어요.",
+      "public": "공개 중",
+      "delete": "삭제",
+      "deleting": "삭제 중…",
+      "deleteConfirm": "이 리뷰를 삭제할까요? 삭제하면 되돌릴 수 없어요.",
+      "visit": "{ym} 방문",
+      "note": "영수증 인증 · 개인의 경험이며 결과는 다를 수 있어요"
+    },
+    "account": {
+      "title": "계정 관리",
+      "nickname": "공개 닉네임",
+      "nicknameHelp": "리뷰와 함께 공개되는 이름입니다. (1–30자)",
+      "email": "이메일",
+      "emailHelp": "Google 계정의 이메일이며 공개되지 않습니다.",
+      "save": "변경사항 저장",
+      "saving": "저장 중…",
+      "saved": "저장했어요.",
+      "error": "닉네임은 1–30자로 입력해 주세요."
+    },
+    "language": {
+      "title": "언어 설정",
+      "current": "현재 언어",
+      "help": "사이트 언어만 변경됩니다. 영수증과 리뷰 내용은 그대로 유지돼요."
+    },
+    "noteTitle": "내 정보는 내가 관리해요",
+    "noteBody": "영수증 사진은 비공개로 보관되며 인증에만 사용됩니다. 작성한 리뷰는 언제든 삭제할 수 있습니다."
   },
   "admin": {
     "title": "영수증 검토 대기열",

@@ -386,12 +386,62 @@
     "ocr_unavailable": "Automatic check unavailable"
   },
   "my": {
-    "title": "My receipts",
-    "empty": "You haven't uploaded any receipts yet.",
-    "statusLabel": "Status",
-    "writeReview": "Write review",
-    "reviewed": "Reviewed",
-    "reason": "Reason"
+    "breadcrumb": "My page",
+    "title": "Welcome back, {name}.",
+    "subtitle": "Manage your receipt verification and the experiences you've shared in one place.",
+    "nav": {
+      "activity": "My activity",
+      "receipts": "Receipts · {n}",
+      "reviews": "My reviews · {n}",
+      "account": "Account",
+      "language": "Language",
+      "logout": "Sign out"
+    },
+    "receipts": {
+      "title": "Receipt verification",
+      "subtitle": "The status of the receipts you uploaded. Receipt photos are stored privately.",
+      "empty": "You haven't uploaded a receipt yet. Find a clinic and verify your visit.",
+      "find": "Find clinics",
+      "reason": "Reason",
+      "write": "Write a review",
+      "reviewed": "Reviewed",
+      "uploadedOn": "Uploaded",
+      "statusLabels": {
+        "pending": "In review",
+        "auto_approved": "Auto-verified",
+        "approved": "Approved",
+        "rejected": "Rejected"
+      }
+    },
+    "reviews": {
+      "title": "My reviews",
+      "find": "Find a clinic to review",
+      "empty": "You haven't written a review yet.",
+      "public": "Public",
+      "delete": "Delete",
+      "deleting": "Deleting…",
+      "deleteConfirm": "Delete this review? This can't be undone.",
+      "visit": "Visited {ym}",
+      "note": "Receipt-verified · Personal experience, results may vary"
+    },
+    "account": {
+      "title": "Account",
+      "nickname": "Public nickname",
+      "nicknameHelp": "Shown with your reviews. (1–30 characters)",
+      "email": "Email",
+      "emailHelp": "Your Google account email. It is never shown publicly.",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "saved": "Saved.",
+      "error": "Use 1–30 characters for your nickname."
+    },
+    "language": {
+      "title": "Language",
+      "current": "Current language",
+      "help": "Only the site language changes. Your receipts and reviews stay as they are."
+    },
+    "noteTitle": "You manage your information",
+    "noteBody": "Receipt photos are kept private and used only for verification. You can delete your reviews at any time."
   },
   "admin": {
     "title": "Receipt review queue",

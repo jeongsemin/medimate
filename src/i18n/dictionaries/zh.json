@@ -386,12 +386,62 @@
     "ocr_unavailable": "自动检查不可用"
   },
   "my": {
-    "title": "我的小票",
-    "empty": "你还没有上传任何小票。",
-    "statusLabel": "状态",
-    "writeReview": "撰写评价",
-    "reviewed": "已评价",
-    "reason": "原因"
+    "breadcrumb": "我的",
+    "title": "{name}，继续你的探索吧。",
+    "subtitle": "在这里集中管理小票验证状态和你分享的体验。",
+    "nav": {
+      "activity": "我的活动",
+      "receipts": "小票 · {n}",
+      "reviews": "我的评价 · {n}",
+      "account": "账号管理",
+      "language": "语言设置",
+      "logout": "退出登录"
+    },
+    "receipts": {
+      "title": "小票验证",
+      "subtitle": "你上传的小票的验证状态。小票照片会被私密保存。",
+      "empty": "你还没有上传小票。找到诊所并验证你的就诊吧。",
+      "find": "查找诊所",
+      "reason": "原因",
+      "write": "撰写评价",
+      "reviewed": "已评价",
+      "uploadedOn": "上传",
+      "statusLabels": {
+        "pending": "审核中",
+        "auto_approved": "自动验证",
+        "approved": "已通过",
+        "rejected": "已驳回"
+      }
+    },
+    "reviews": {
+      "title": "我的评价",
+      "find": "查找要评价的诊所",
+      "empty": "你还没有撰写评价。",
+      "public": "公开中",
+      "delete": "删除",
+      "deleting": "删除中…",
+      "deleteConfirm": "要删除这条评价吗？删除后无法恢复。",
+      "visit": "{ym} 就诊",
+      "note": "小票已验证 · 个人体验，效果因人而异"
+    },
+    "account": {
+      "title": "账号管理",
+      "nickname": "公开昵称",
+      "nicknameHelp": "会与评价一起公开的名称。（1–30 个字符）",
+      "email": "邮箱",
+      "emailHelp": "这是你的 Google 账号邮箱，不会公开。",
+      "save": "保存更改",
+      "saving": "保存中…",
+      "saved": "已保存。",
+      "error": "昵称请输入 1–30 个字符。"
+    },
+    "language": {
+      "title": "语言设置",
+      "current": "当前语言",
+      "help": "仅更改网站语言。你的小票和评价内容保持不变。"
+    },
+    "noteTitle": "你的信息由你管理",
+    "noteBody": "小票照片会被私密保存，仅用于验证。你可以随时删除自己撰写的评价。"
   },
   "admin": {
     "title": "小票审核队列",
