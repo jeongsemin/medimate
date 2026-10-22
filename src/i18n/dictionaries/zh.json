@@ -540,5 +540,24 @@
     ],
     "verifyTitle": "用小票验证就诊",
     "verifyBody": "只有用小票验证过就诊的用户才能撰写评价。验证仅确认就诊事实，不代表也不保证治疗效果。"
+  },
+  "reviewDetail": {
+    "breadcrumb": "{name}  /  评价详情",
+    "eyebrow": "用户体验 · 小票已验证",
+    "subtitle": "{author}的个人就诊故事",
+    "written": "{date} 发布 · {lang}",
+    "meta": {
+      "visit": "就诊时间",
+      "treatment": "诊疗/项目",
+      "clinic": "就诊诊所"
+    },
+    "privacyTitle": "个人信息提示",
+    "privacyBody": "请勿在评价中公开联系方式、护照号码或病历等个人信息。这条评价已通过小票验证就诊，但不代表也不保证治疗效果。",
+    "sidebarTitle": "这条评价的诊所",
+    "toClinic": "前往{name}详情",
+    "separateTitle": "评价与诊所信息是分开的",
+    "separateBody": "这是用户体验内容。诊所的地址、电话等信息请在诊所详情页另行确认。",
+    "readMore": "查看全文",
+    "notFoundHint": "找不到这条评价。"
   }
 }

@@ -169,7 +169,10 @@ export function MyView({
                           <p className="text-xs text-star">★ {r.rating.toFixed(1)}</p>
                         </div>
                         <p className="text-[10px] text-muted">{fill(t.reviews.visit, { ym })}</p>
-                        <p className="whitespace-pre-line text-[13px] leading-relaxed text-muted">{r.body}</p>
+                        <p className="line-clamp-6 whitespace-pre-line text-[13px] leading-relaxed text-muted">{r.body}</p>
+                        <Link href={`/${lang}/reviews/${r.id}`} className="inline-block text-xs font-bold text-brand hover:underline">
+                          {dict.reviewDetail.readMore} →
+                        </Link>
                         {hospital && (
                           <Link href={`/${lang}/hospitals/${hospital.id}`} className="block text-[11px] text-brand hover:underline">
                             {hospital.name}

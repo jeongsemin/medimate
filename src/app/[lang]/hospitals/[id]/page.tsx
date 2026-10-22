@@ -265,7 +265,10 @@ export default async function HospitalPage({ params, searchParams }: PageProps<"
                               ))}
                             </ul>
                           )}
-                          <p className="whitespace-pre-line text-[13px] leading-relaxed text-muted">{r.body}</p>
+                          <p className="line-clamp-6 whitespace-pre-line text-[13px] leading-relaxed text-muted">{r.body}</p>
+                          <Link href={`/${lang}/reviews/${r.id}`} className="inline-block text-xs font-bold text-brand hover:underline">
+                            {dict.reviewDetail.readMore} →
+                          </Link>
                           <p className="text-[10px] text-muted">{t.cardNote}</p>
                         </li>
                       );

@@ -221,6 +221,9 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
                   </div>
                   <p className="text-[10px] text-muted">{month}</p>
                   <p className="line-clamp-4 text-[13px] leading-relaxed text-muted">{r.body}</p>
+                  <Link href={`/${lang}/reviews/${r.id}`} className="inline-block text-xs font-bold text-brand hover:underline">
+                    {dict.reviewDetail.readMore} →
+                  </Link>
                   {hospital && (
                     <Link href={`/${lang}/hospitals/${hospital.id}`} className="block text-[11px] text-brand hover:underline">
                       {hospital.name}

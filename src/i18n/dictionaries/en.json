@@ -540,5 +540,24 @@
     ],
     "verifyTitle": "Your visit is verified by receipt",
     "verifyBody": "Only users who verified their visit with a receipt can write reviews. Verification confirms the visit, not treatment results, and guarantees nothing about outcomes."
+  },
+  "reviewDetail": {
+    "breadcrumb": "{name}  /  Review",
+    "eyebrow": "USER EXPERIENCE · RECEIPT-VERIFIED",
+    "subtitle": "{author}'s personal story of a visit",
+    "written": "Written {date} · {lang}",
+    "meta": {
+      "visit": "Visit month",
+      "treatment": "Treatment",
+      "clinic": "Clinic visited"
+    },
+    "privacyTitle": "Privacy notice",
+    "privacyBody": "Never share contact details, passport numbers or medical records in a review. This visit was verified with a receipt, but that does not verify or guarantee treatment results.",
+    "sidebarTitle": "Clinic for this review",
+    "toClinic": "Go to {name}",
+    "separateTitle": "Reviews and clinic info are separate",
+    "separateBody": "This is a user experience. Check the clinic's address, phone and other details on its own page.",
+    "readMore": "Read in full",
+    "notFoundHint": "We couldn't find this review."
   }
 }

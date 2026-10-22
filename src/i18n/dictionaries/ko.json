@@ -540,5 +540,24 @@
     ],
     "verifyTitle": "영수증으로 방문을 인증해요",
     "verifyBody": "리뷰는 영수증으로 방문을 인증한 사용자만 작성할 수 있어요. 인증은 방문 사실을 확인하는 것이며 치료 효과를 검증하거나 보장하지 않습니다."
+  },
+  "reviewDetail": {
+    "breadcrumb": "{name}  /  리뷰 상세",
+    "eyebrow": "사용자 경험 · 영수증 인증 리뷰",
+    "subtitle": "{author}님의 개인적인 방문 이야기",
+    "written": "{date} 작성 · {lang}",
+    "meta": {
+      "visit": "방문 시기",
+      "treatment": "진료/시술",
+      "clinic": "방문 병원"
+    },
+    "privacyTitle": "개인정보 안내",
+    "privacyBody": "리뷰에는 연락처·여권·진료기록 등 개인정보를 공개하지 마세요. 이 리뷰는 영수증으로 방문이 인증되었지만, 치료 효과를 검증하거나 보장하지 않습니다.",
+    "sidebarTitle": "이 리뷰의 병원",
+    "toClinic": "{name} 상세로",
+    "separateTitle": "리뷰와 병원 정보는 별개예요",
+    "separateBody": "이 글은 사용자 경험 영역입니다. 병원의 주소·전화 등 정보는 병원 상세에서 따로 확인하세요.",
+    "readMore": "전문 보기",
+    "notFoundHint": "리뷰를 찾을 수 없어요."
   }
 }
