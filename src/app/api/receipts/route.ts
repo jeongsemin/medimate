@@ -2,17 +2,11 @@ import { createHash } from "node:crypto";
 import { NextResponse, type NextRequest } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { ocrConfigured, readReceipt } from "@/lib/clova-ocr";
-import { verifyReceipt } from "@/lib/receipt-verify";
+import { readReceipt } from "@/lib/clova-ocr";
+import { isAcceptableSize, sniffImage } from "@/lib/receipt-file";
+import { decideReceipt } from "@/lib/receipt-verify";
 
-const MAX_BYTES = 10 * 1024 * 1024;
 const DAILY_LIMIT = 10;
-
-function sniff(buf: Buffer): "jpg" | "png" | null {
-  if (buf.length > 3 && buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff) return "jpg";
-  if (buf.length > 8 && buf.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) return "png";
-  return null;
-}
 
 export async function POST(request: NextRequest) {
   const supabase = await createClient();
@@ -22,11 +16,11 @@ export async function POST(request: NextRequest) {
   const form = await request.formData();
   const hospitalId = String(form.get("hospitalId") ?? "");
   const file = form.get("file");
-  if (!(file instanceof File) || file.size === 0 || file.size > MAX_BYTES) {
+  if (!(file instanceof File) || !isAcceptableSize(file.size)) {
     return NextResponse.json({ error: "badFile" }, { status: 400 });
   }
   const bytes = Buffer.from(await file.arrayBuffer());
-  const format = sniff(bytes); // trust the bytes, not the client-supplied type
+  const format = sniffImage(bytes); // trust the bytes, not the client-supplied type
   if (!format) return NextResponse.json({ error: "badFile" }, { status: 400 });
 
   const admin = createAdminClient();
@@ -57,9 +51,7 @@ export async function POST(request: NextRequest) {
 
   // Automatic check. Anything that fails or can't be read goes to the manual queue.
   const ocr = await readReceipt(bytes, format);
-  const verdict = ocr ? verifyReceipt(ocr.parsed, hospital.name) : null;
-  const reasons = verdict ? verdict.reasons : ocrConfigured() ? ["store_name_missing", "date_missing", "total_missing"] : ["ocr_unavailable"];
-  const status = verdict?.passed ? "auto_approved" : "pending";
+  const { status, reasons, score } = decideReceipt(ocr?.parsed ?? null, hospital.name);
 
   const { data: receipt, error } = await admin
     .from("receipts")
@@ -72,7 +64,7 @@ export async function POST(request: NextRequest) {
       ocr_store_name: ocr?.parsed.storeName ?? null,
       ocr_paid_on: ocr?.parsed.paidOn ?? null,
       ocr_total: ocr?.parsed.total ?? null,
-      match_score: verdict?.score ?? null,
+      match_score: score,
       ocr_raw: { reasons, clova: ocr?.raw ?? null },
     })
     .select("id, status")

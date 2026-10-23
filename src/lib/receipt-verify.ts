@@ -77,3 +77,24 @@ export function verifyReceipt(
 
   return { score: Math.round(score * 1000) / 1000, passed: reasons.length === 0, reasons };
 }
+
+export type ReceiptDecision = {
+  status: "auto_approved" | "pending";
+  reasons: string[];
+  score: number | null;
+};
+
+/**
+ * The outcome of the automatic check. Only a fully matching receipt is approved
+ * automatically; everything else, including an OCR that is unavailable or failed,
+ * goes to the manual queue.
+ */
+export function decideReceipt(
+  parsed: OcrReceipt | null,
+  hospitalName: string,
+  now: Date = new Date(),
+): ReceiptDecision {
+  if (!parsed) return { status: "pending", reasons: ["ocr_unavailable"], score: null };
+  const v = verifyReceipt(parsed, hospitalName, now);
+  return { status: v.passed ? "auto_approved" : "pending", reasons: v.reasons, score: v.score };
+}

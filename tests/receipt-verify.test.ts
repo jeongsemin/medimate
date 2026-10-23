@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { daysBetween, nameSimilarity, verifyReceipt } from "../src/lib/receipt-verify.ts";
+import { daysBetween, decideReceipt, nameSimilarity, verifyReceipt } from "../src/lib/receipt-verify.ts";
 
 const now = new Date("2026-10-12T03:00:00Z");
 
@@ -45,5 +45,30 @@ describe("verifyReceipt", () => {
   it("flags unreadable fields", () => {
     const r = verifyReceipt({ storeName: null, paidOn: null, total: null }, "서울맑은피부과", now);
     assert.deepEqual(r.reasons, ["store_name_missing", "date_missing", "total_missing"]);
+  });
+});
+
+describe("decideReceipt", () => {
+  const ok = { storeName: "서울맑은피부과의원", paidOn: "2026-10-05", total: 55000 };
+
+  it("auto-approves only a fully matching receipt", () => {
+    assert.deepEqual(decideReceipt(ok, "서울맑은피부과", now), { status: "auto_approved", reasons: [], score: 1 });
+  });
+  it("sends a mismatching receipt to manual review with the reasons", () => {
+    const d = decideReceipt({ ...ok, storeName: "행복약국" }, "서울맑은피부과", now);
+    assert.equal(d.status, "pending");
+    assert.deepEqual(d.reasons, ["store_name_mismatch"]);
+    assert.ok(d.score !== null && d.score < 0.6);
+  });
+  it("collects every failing check", () => {
+    const d = decideReceipt({ storeName: null, paidOn: "2026-01-01", total: null }, "서울맑은피부과", now);
+    assert.deepEqual(d.reasons, ["store_name_missing", "date_too_old", "total_missing"]);
+    assert.equal(d.status, "pending");
+  });
+  it("treats an unavailable or failed OCR as 'unavailable', not as unreadable fields", () => {
+    assert.deepEqual(decideReceipt(null, "서울맑은피부과", now), { status: "pending", reasons: ["ocr_unavailable"], score: null });
+  });
+  it("never auto-approves a future-dated receipt", () => {
+    assert.equal(decideReceipt({ ...ok, paidOn: "2026-12-31" }, "서울맑은피부과", now).status, "pending");
   });
 });
