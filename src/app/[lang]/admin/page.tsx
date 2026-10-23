@@ -4,9 +4,18 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { requireProfile } from "@/lib/auth";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { AdminView, type Counts, type QueueItem, type RecentItem } from "./admin-view";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
 type Named = { display_name: string | null } | null;
 type Hospital = { name: string } | null;
+
+export async function generateMetadata({ params }: PageProps<"/[lang]/admin">): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang);
+  return pageMetadata({ lang, path: "/admin", title: dict.admin.title, noindex: true });
+}
 
 export default async function AdminPage({ params }: PageProps<"/[lang]/admin">) {
   const { lang } = await params;

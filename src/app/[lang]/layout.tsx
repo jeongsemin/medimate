@@ -5,6 +5,7 @@ import { Inter, Noto_Sans_JP, Noto_Sans_KR, Noto_Sans_SC } from "next/font/googl
 import "../globals.css";
 import { hasLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { SITE_NAME, siteUrl } from "@/lib/seo";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
@@ -21,7 +22,12 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return { title: dict.meta.title, description: dict.meta.description };
+  return {
+    metadataBase: new URL(siteUrl()),
+    // The template applies to child pages; pages in this segment (the home page) use the default.
+    title: { default: dict.meta.title, template: `%s | ${SITE_NAME}` },
+    description: dict.meta.description,
+  };
 }
 
 export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {

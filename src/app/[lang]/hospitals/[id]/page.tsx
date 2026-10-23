@@ -7,6 +7,8 @@ import { aggregateReviews, type ReviewRow } from "@/lib/search-params";
 import { createClient } from "@/lib/supabase/server";
 import { Container } from "@/components/container";
 import { StarRating } from "@/components/star-rating";
+import type { Metadata } from "next";
+import { clinicDescription, pageMetadata } from "@/lib/seo";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const PAGE = 10;
@@ -16,6 +18,28 @@ const fill = (template: string, values: Record<string, string | number>) =>
 
 type Filter = "all" | "english" | "director";
 type Sort = "latest" | "high" | "low";
+
+export async function generateMetadata({ params }: PageProps<"/[lang]/hospitals/[id]">): Promise<Metadata> {
+  const { lang, id } = await params;
+  if (!hasLocale(lang) || !UUID.test(id)) return {};
+  const supabase = await createClient();
+  const [{ data: hospital }, { data: stats }] = await Promise.all([
+    supabase.from("hospitals").select("name, road_address, address").eq("id", id).maybeSingle(),
+    supabase.from("hospital_stats").select("review_count, avg_rating").eq("hospital_id", id).maybeSingle(),
+  ]);
+  if (!hospital) return {};
+  return pageMetadata({
+    lang,
+    path: `/hospitals/${id}`,
+    title: hospital.name,
+    description: clinicDescription({
+      name: hospital.name,
+      address: hospital.road_address || hospital.address,
+      reviewCount: stats?.review_count ?? 0,
+      avgRating: stats?.avg_rating === null || stats?.avg_rating === undefined ? null : Number(stats.avg_rating),
+    }),
+  });
+}
 
 export default async function HospitalPage({ params, searchParams }: PageProps<"/[lang]/hospitals/[id]">) {
   const { lang, id } = await params;

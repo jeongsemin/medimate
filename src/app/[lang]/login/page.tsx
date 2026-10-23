@@ -5,6 +5,15 @@ import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { safeNext } from "@/lib/auth";
 import { GoogleButton } from "./google-button";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({ params }: PageProps<"/[lang]/login">): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang);
+  return pageMetadata({ lang, path: "/login", title: dict.nav.login, description: dict.login.subtitle, noindex: true });
+}
 
 export default async function LoginPage({ params, searchParams }: PageProps<"/[lang]/login">) {
   const { lang } = await params;

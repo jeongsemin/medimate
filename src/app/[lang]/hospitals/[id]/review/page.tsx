@@ -8,8 +8,17 @@ import { createClient } from "@/lib/supabase/server";
 import { Container } from "@/components/container";
 import { ReceiptUploader } from "./receipt-uploader";
 import { ReviewForm } from "./review-form";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+export async function generateMetadata({ params }: PageProps<"/[lang]/hospitals/[id]/review">): Promise<Metadata> {
+  const { lang, id } = await params;
+  if (!hasLocale(lang) || !UUID.test(id)) return {};
+  const dict = await getDictionary(lang);
+  return pageMetadata({ lang, path: `/hospitals/${id}/review`, title: dict.write.breadcrumb[1], noindex: true });
+}
 
 export default async function ReviewPage({ params }: PageProps<"/[lang]/hospitals/[id]/review">) {
   const { lang, id } = await params;

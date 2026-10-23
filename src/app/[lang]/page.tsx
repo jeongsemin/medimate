@@ -18,6 +18,8 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { createClient } from "@/lib/supabase/server";
 import { Container } from "@/components/container";
 import { SearchForm } from "@/components/search-form";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
 const AREA_IMAGES = ["area-gangnam", "area-myeongdong", "area-hongdae", "area-busan"];
 const TREATMENT_ICONS = [Sparkles, Droplets, Sun, HeartPulse];
@@ -35,6 +37,14 @@ function SectionIntro({ eyebrow, title, subtitle }: { eyebrow: string; title: st
       <p className="text-sm text-muted">{subtitle}</p>
     </div>
   );
+}
+
+export async function generateMetadata({ params }: PageProps<"/[lang]">): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang);
+  // the home page uses the layout's default title, so only the social title is set here
+  return pageMetadata({ lang, description: dict.meta.description, socialTitle: dict.meta.title });
 }
 
 export default async function HomePage({ params }: PageProps<"/[lang]">) {

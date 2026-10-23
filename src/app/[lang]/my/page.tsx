@@ -4,6 +4,15 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { requireProfile } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { MyView } from "./my-view";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({ params }: PageProps<"/[lang]/my">): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang);
+  return pageMetadata({ lang, path: "/my", title: dict.nav.my, noindex: true });
+}
 
 export default async function MyPage({ params }: PageProps<"/[lang]/my">) {
   const { lang } = await params;

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { pageMetadata } from "@/lib/seo";
 import { createClient } from "@/lib/supabase/server";
 import { ReviewView, type ClinicData, type ReviewData } from "./review-view";
 
@@ -59,7 +60,14 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/reviews/[i
   const found = await load(id);
   if (!found) return {};
   const excerpt = found.reviewData.body.replace(/\s+/g, " ").slice(0, 150);
-  return { title: `${found.clinic.name} – ${found.reviewData.author ?? "Review"} | MediMate`, description: excerpt };
+  return pageMetadata({
+    lang,
+    path: `/reviews/${id}`,
+    // the layout's title template appends the site name
+    title: `${found.clinic.name} – ${found.reviewData.author ?? "Review"}`,
+    description: excerpt,
+    type: "article",
+  });
 }
 
 export default async function ReviewPage({ params }: PageProps<"/[lang]/reviews/[id]">) {

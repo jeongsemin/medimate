@@ -19,6 +19,8 @@ import {
 import { createClient } from "@/lib/supabase/server";
 import { Container } from "@/components/container";
 import { SearchForm } from "@/components/search-form";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
 const fill = (template: string, values: Record<string, string | number>) =>
   template.replace(/\{(\w+)\}/g, (_, key) => String(values[key] ?? ""));
@@ -40,6 +42,21 @@ async function loadCompare(ids: string[]): Promise<CompareHospital[]> {
     if (!h) return [];
     const rows = ((reviews ?? []) as ReviewRow[]).filter((r) => r.hospital_id === id);
     return [{ id, name: h.name, address: h.road_address || h.address || "", stats: aggregateReviews(rows) }];
+  });
+}
+
+export async function generateMetadata({ params, searchParams }: PageProps<"/[lang]/search">): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang);
+  const { query } = composeQuery(parseParams(await searchParams));
+  return pageMetadata({
+    lang,
+    path: "/search",
+    title: query ? fill(dict.search.title, { q: query }) : dict.search.titleEmpty,
+    description: dict.search.subtitle,
+    noindex: true,
+    follow: true,
   });
 }
 
