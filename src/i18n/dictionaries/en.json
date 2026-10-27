@@ -374,7 +374,8 @@
     "duplicate": "This receipt photo has already been submitted.",
     "generic": "Something went wrong. Please try again.",
     "invalid": "Please check the form and try again.",
-    "consent": "Please tick both required agreements."
+    "consent": "Please tick both required agreements.",
+    "suspended": "A suspended account can't use this feature."
   },
   "reasons": {
     "store_name_missing": "Clinic name not readable",
@@ -422,7 +423,8 @@
       "deleting": "Deleting…",
       "deleteConfirm": "Delete this review? This can't be undone.",
       "visit": "Visited {ym}",
-      "note": "Receipt-verified · Personal experience, results may vary"
+      "note": "Receipt-verified · Personal experience, results may vary",
+      "hidden": "Hidden"
     },
     "account": {
       "title": "Account",
@@ -441,7 +443,38 @@
       "help": "Only the site language changes. Your receipts and reviews stay as they are."
     },
     "noteTitle": "You manage your information",
-    "noteBody": "Receipt photos are kept private and used only for verification. You can delete your reviews at any time."
+    "noteBody": "Receipt photos are kept private and used only for verification. You can delete your reviews at any time.",
+    "suspended": {
+      "title": "Your account is suspended",
+      "body": "You can't upload receipts or write reviews, and your reviews are hidden from other people. Contact the administrator if you think this is a mistake.",
+      "reason": "Reason"
+    },
+    "details": {
+      "title": "About you (optional)",
+      "help": "Used only for aggregate statistics by the administrators. It is never shown on reviews or to other users, and you can change or clear it any time.",
+      "country": "Country / region",
+      "age": "Age group",
+      "gender": "Gender",
+      "none": "Prefer not to say",
+      "ageOptions": {
+        "10s": "Teens",
+        "20s": "20s",
+        "30s": "30s",
+        "40s": "40s",
+        "50s": "50s",
+        "60plus": "60 and over"
+      },
+      "genderOptions": {
+        "female": "Female",
+        "male": "Male",
+        "other": "Other",
+        "undisclosed": "Prefer not to say"
+      },
+      "save": "Save",
+      "saving": "Saving…",
+      "saved": "Saved.",
+      "error": "Please choose from the options."
+    }
   },
   "admin": {
     "breadcrumb": "Admin",
@@ -501,6 +534,74 @@
         "forbidden": "You don't have permission to do this.",
         "generic": "Something went wrong. Please try again."
       }
+    },
+    "membersLink": {
+      "title": "Members",
+      "body": "See everyone who has signed up, filter them, and suspend accounts.",
+      "open": "Open member list"
+    },
+    "members": {
+      "breadcrumb": "Admin / Members",
+      "title": "Members",
+      "subtitle": "Everyone who has signed in with Google. Country, age group and gender are optional, self-reported and visible only here.",
+      "back": "Back to review queue",
+      "stats": {
+        "total": "All members",
+        "active": "Active",
+        "suspended": "Suspended",
+        "admins": "Administrators",
+        "matching": "Matching the filters"
+      },
+      "filters": {
+        "title": "Filters",
+        "search": "Name or email",
+        "searchPlaceholder": "Search…",
+        "country": "Country / region",
+        "age": "Age group",
+        "gender": "Gender",
+        "status": "Status",
+        "from": "Joined from",
+        "to": "Joined until",
+        "any": "Any",
+        "unset": "Not provided",
+        "apply": "Apply",
+        "reset": "Reset"
+      },
+      "statusOptions": {
+        "all": "All",
+        "active": "Active",
+        "suspended": "Suspended",
+        "admin": "Administrators"
+      },
+      "columns": {
+        "member": "Member",
+        "joined": "Joined",
+        "country": "Country",
+        "age": "Age",
+        "gender": "Gender",
+        "receipts": "Receipts",
+        "reviews": "Reviews",
+        "status": "Status"
+      },
+      "status": {
+        "active": "Active",
+        "suspended": "Suspended",
+        "admin": "Administrator"
+      },
+      "selectAll": "Select all on this page",
+      "selectRow": "Select {name}",
+      "selected": "{n} selected",
+      "reasonPlaceholder": "Reason (recorded and shown to the member)",
+      "suspend": "Suspend",
+      "restore": "Restore",
+      "suspendConfirm": "Suspend {n} member(s)? They can't upload receipts or write reviews, and their reviews are hidden. Administrators and yourself are skipped.",
+      "restoreConfirm": "Restore {n} member(s)? Their reviews become visible again.",
+      "empty": "No members match.",
+      "unset": "—",
+      "pageOf": "Page {page} of {pages}",
+      "prev": "Previous",
+      "next": "Next",
+      "privacy": "Handle this data carefully: use it only to run the service, and don't copy it elsewhere."
     }
   },
   "common": {

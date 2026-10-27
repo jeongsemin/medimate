@@ -374,7 +374,8 @@
     "duplicate": "该小票照片已被提交过。",
     "generic": "出错了，请重试。",
     "invalid": "请检查表单后重试。",
-    "consent": "请勾选所有必填的同意项。"
+    "consent": "请勾选所有必填的同意项。",
+    "suspended": "已停用的账号无法使用此功能。"
   },
   "reasons": {
     "store_name_missing": "无法识别诊所名称",
@@ -422,7 +423,8 @@
       "deleting": "删除中…",
       "deleteConfirm": "要删除这条评价吗？删除后无法恢复。",
       "visit": "{ym} 就诊",
-      "note": "小票已验证 · 个人体验，效果因人而异"
+      "note": "小票已验证 · 个人体验，效果因人而异",
+      "hidden": "已隐藏"
     },
     "account": {
       "title": "账号管理",
@@ -441,7 +443,38 @@
       "help": "仅更改网站语言。你的小票和评价内容保持不变。"
     },
     "noteTitle": "你的信息由你管理",
-    "noteBody": "小票照片会被私密保存，仅用于验证。你可以随时删除自己撰写的评价。"
+    "noteBody": "小票照片会被私密保存，仅用于验证。你可以随时删除自己撰写的评价。",
+    "suspended": {
+      "title": "你的账号已被停用",
+      "body": "你无法上传小票或撰写评价，已有的评价也不会向其他人显示。如认为有误，请联系管理员。",
+      "reason": "原因"
+    },
+    "details": {
+      "title": "关于你（选填）",
+      "help": "仅供管理员做汇总统计，不会显示在评价或其他用户面前。你可以随时修改或清除。",
+      "country": "国家/地区",
+      "age": "年龄段",
+      "gender": "性别",
+      "none": "不愿透露",
+      "ageOptions": {
+        "10s": "10 多岁",
+        "20s": "20 多岁",
+        "30s": "30 多岁",
+        "40s": "40 多岁",
+        "50s": "50 多岁",
+        "60plus": "60 岁及以上"
+      },
+      "genderOptions": {
+        "female": "女",
+        "male": "男",
+        "other": "其他",
+        "undisclosed": "不愿透露"
+      },
+      "save": "保存",
+      "saving": "保存中…",
+      "saved": "已保存。",
+      "error": "请从选项中选择。"
+    }
   },
   "admin": {
     "breadcrumb": "管理",
@@ -501,6 +534,74 @@
         "forbidden": "你没有执行此操作的权限。",
         "generic": "出了点问题，请重试。"
       }
+    },
+    "membersLink": {
+      "title": "会员",
+      "body": "查看所有注册会员、筛选并停用账号。",
+      "open": "打开会员列表"
+    },
+    "members": {
+      "breadcrumb": "管理员 / 会员",
+      "title": "会员",
+      "subtitle": "所有通过 Google 登录的会员。国家、年龄段和性别为选填的自我申报信息，仅在此处可见。",
+      "back": "返回审核队列",
+      "stats": {
+        "total": "全部会员",
+        "active": "正常",
+        "suspended": "已停用",
+        "admins": "管理员",
+        "matching": "符合筛选条件"
+      },
+      "filters": {
+        "title": "筛选",
+        "search": "姓名或邮箱",
+        "searchPlaceholder": "搜索…",
+        "country": "国家/地区",
+        "age": "年龄段",
+        "gender": "性别",
+        "status": "状态",
+        "from": "注册起始日",
+        "to": "注册截止日",
+        "any": "全部",
+        "unset": "未填写",
+        "apply": "应用",
+        "reset": "重置"
+      },
+      "statusOptions": {
+        "all": "全部",
+        "active": "正常",
+        "suspended": "已停用",
+        "admin": "管理员"
+      },
+      "columns": {
+        "member": "会员",
+        "joined": "注册日",
+        "country": "国家",
+        "age": "年龄",
+        "gender": "性别",
+        "receipts": "小票",
+        "reviews": "评价",
+        "status": "状态"
+      },
+      "status": {
+        "active": "正常",
+        "suspended": "已停用",
+        "admin": "管理员"
+      },
+      "selectAll": "选择本页全部",
+      "selectRow": "选择 {name}",
+      "selected": "已选 {n} 人",
+      "reasonPlaceholder": "原因（会被记录并显示给该会员）",
+      "suspend": "停用",
+      "restore": "恢复",
+      "suspendConfirm": "要停用 {n} 位会员吗？他们将无法上传小票或撰写评价，评价也会被隐藏。管理员和你自己会被跳过。",
+      "restoreConfirm": "要恢复 {n} 位会员吗？他们的评价将重新显示。",
+      "empty": "没有符合条件的会员。",
+      "unset": "—",
+      "pageOf": "第 {page} / {pages} 页",
+      "prev": "上一页",
+      "next": "下一页",
+      "privacy": "请谨慎处理这些数据：仅用于运营服务，不要复制到其他地方。"
     }
   },
   "common": {

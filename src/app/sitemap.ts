@@ -26,13 +26,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Only clinics that have at least one review are worth indexing.
   try {
-    const { data } = await createAdminClient()
-      .from("reviews")
-      .select("hospital_id, created_at")
-      .order("created_at", { ascending: false })
-      .limit(5000);
+    const admin = createAdminClient();
+    const [{ data }, { data: suspended }] = await Promise.all([
+      admin.from("reviews").select("hospital_id, user_id, created_at").order("created_at", { ascending: false }).limit(5000),
+      admin.from("suspensions").select("user_id"),
+    ]);
+    // The service role bypasses RLS, so leave out reviews hidden because their author is suspended.
+    const hidden = new Set((suspended ?? []).map((s) => s.user_id));
     const latest = new Map<string, string>();
-    for (const r of data ?? []) if (!latest.has(r.hospital_id)) latest.set(r.hospital_id, r.created_at);
+    for (const r of data ?? []) {
+      if (!hidden.has(r.user_id) && !latest.has(r.hospital_id)) latest.set(r.hospital_id, r.created_at);
+    }
     for (const [id, created] of latest) entries.push(...localized(`/hospitals/${id}`, new Date(created), 0.7));
   } catch {
     // The database being unreachable must not break the sitemap: serve the static entries.

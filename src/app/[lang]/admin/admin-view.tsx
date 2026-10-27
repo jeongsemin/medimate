@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Info } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -71,6 +72,19 @@ export function AdminView({
       </section>
 
       <Container className="space-y-10 pb-16">
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-md border border-border bg-card p-5">
+          <div className="space-y-1">
+            <p className="text-[15px] font-bold">{t.membersLink.title}</p>
+            <p className="text-xs text-muted">{t.membersLink.body}</p>
+          </div>
+          <Link
+            href={`/${lang}/admin/members`}
+            className="flex min-h-12 items-center justify-center rounded-sm bg-brand px-5 py-3 text-sm font-bold text-white hover:bg-brand-strong"
+          >
+            {t.membersLink.open}
+          </Link>
+        </div>
+
         <ul className="grid grid-cols-2 gap-4 lg:grid-cols-4">
           {stats.map((s) => (
             <li key={s.key} className="space-y-1 rounded-md border border-border bg-card p-5">

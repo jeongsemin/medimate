@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import { NICKNAME_MAX } from "@/lib/profile-input";
-import { deleteReview, updateNickname, type NicknameState } from "./actions";
+import { deleteReview, updateMemberDetails, updateNickname, type DetailsState, type NicknameState } from "./actions";
 
 export function NicknameForm({
   lang,
@@ -46,6 +46,103 @@ export function NicknameForm({
         />
         <span className="block text-xs text-muted">{text.nicknameHelp}</span>
       </label>
+      <div className="flex flex-wrap items-center gap-3">
+        <button
+          disabled={pending}
+          className="min-h-12 rounded-sm bg-brand px-5 py-3 text-sm font-bold text-white hover:bg-brand-strong disabled:opacity-60"
+        >
+          {pending ? text.saving : text.save}
+        </button>
+        <p role="status" className={`text-xs ${state?.error ? "text-error" : "text-brand"}`}>
+          {message}
+        </p>
+      </div>
+    </form>
+  );
+}
+
+type DetailsText = {
+  title: string;
+  help: string;
+  country: string;
+  age: string;
+  gender: string;
+  none: string;
+  ageOptions: Record<string, string>;
+  genderOptions: Record<string, string>;
+  save: string;
+  saving: string;
+  saved: string;
+  error: string;
+  notLoggedIn: string;
+  generic: string;
+};
+
+export function MemberDetailsForm({
+  lang,
+  countries,
+  current,
+  text,
+}: {
+  lang: string;
+  countries: { code: string; name: string }[];
+  current: { country: string | null; age_group: string | null; gender: string | null };
+  text: DetailsText;
+}) {
+  const [state, action, pending] = useActionState<DetailsState, FormData>(updateMemberDetails, null);
+  const message = state?.ok
+    ? text.saved
+    : state?.error === "invalid"
+      ? text.error
+      : state?.error === "notLoggedIn"
+        ? text.notLoggedIn
+        : state?.error
+          ? text.generic
+          : "";
+  const select =
+    "min-h-[52px] w-full rounded-sm border border-border bg-white p-3.5 text-sm outline-none focus:border-focus";
+  return (
+    <form action={action} className="space-y-4">
+      <input type="hidden" name="lang" value={lang} />
+      <div className="space-y-1">
+        <p className="text-[15px] font-bold">{text.title}</p>
+        <p className="text-xs text-muted">{text.help}</p>
+      </div>
+      <div className="grid gap-4 md:grid-cols-3">
+        <label className="block space-y-2">
+          <span className="text-[13px] font-bold">{text.country}</span>
+          <select name="country" defaultValue={current.country ?? ""} className={select}>
+            <option value="">{text.none}</option>
+            {countries.map((c) => (
+              <option key={c.code} value={c.code}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="block space-y-2">
+          <span className="text-[13px] font-bold">{text.age}</span>
+          <select name="age_group" defaultValue={current.age_group ?? ""} className={select}>
+            <option value="">{text.none}</option>
+            {Object.entries(text.ageOptions).map(([value, label]) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="block space-y-2">
+          <span className="text-[13px] font-bold">{text.gender}</span>
+          <select name="gender" defaultValue={current.gender ?? ""} className={select}>
+            <option value="">{text.none}</option>
+            {Object.entries(text.genderOptions).map(([value, label]) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
       <div className="flex flex-wrap items-center gap-3">
         <button
           disabled={pending}

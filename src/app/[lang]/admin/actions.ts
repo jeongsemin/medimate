@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { hasLocale } from "@/i18n/config";
 import { checkRoleChange, parseEmail, type RoleError } from "@/lib/admin-roles";
 import { getProfile } from "@/lib/auth";
+import { pickSuspendTargets } from "@/lib/member-filters";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -34,6 +35,36 @@ export async function decideReceipt(form: FormData) {
 
   const lang = String(form.get("lang") ?? "");
   revalidatePath(`/${hasLocale(lang) ? lang : "en"}/admin`);
+}
+
+/** Suspends or restores the checked members. Administrators and the acting admin are never suspended. */
+export async function setSuspension(form: FormData) {
+  const profile = await getProfile();
+  if (!profile?.is_admin) throw new Error("forbidden");
+
+  const decision = form.get("decision");
+  if (decision !== "suspend" && decision !== "restore") throw new Error("invalid decision");
+  const ids = [...new Set(form.getAll("ids").map(String).filter((id) => UUID.test(id)))].slice(0, 100);
+  if (ids.length === 0) return;
+  const reason = String(form.get("reason") ?? "").replace(/\s+/g, " ").trim().slice(0, 200);
+
+  const admin = createAdminClient();
+  if (decision === "suspend") {
+    const { data: admins } = await admin.from("profiles").select("id").in("id", ids).eq("is_admin", true);
+    const targets = pickSuspendTargets(ids, profile.id, new Set((admins ?? []).map((a) => a.id)));
+    if (targets.length > 0) {
+      const { error } = await admin
+        .from("suspensions")
+        .upsert(targets.map((id) => ({ user_id: id, reason: reason || null, suspended_by: profile.id })), { onConflict: "user_id" });
+      if (error) throw new Error("suspend failed");
+    }
+  } else {
+    const { error } = await admin.from("suspensions").delete().in("user_id", ids);
+    if (error) throw new Error("restore failed");
+  }
+
+  const lang = String(form.get("lang") ?? "");
+  revalidatePath(`/${hasLocale(lang) ? lang : "en"}/admin/members`);
 }
 
 export type GrantState = { ok?: true; error?: RoleError | "invalidEmail" | "notFound" | "forbidden" | "generic" } | null;

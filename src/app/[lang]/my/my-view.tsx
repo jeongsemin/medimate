@@ -3,7 +3,7 @@ import { Info } from "lucide-react";
 import { localeNames, locales, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Container } from "@/components/container";
-import { DeleteReviewForm, NicknameForm } from "./account-forms";
+import { DeleteReviewForm, MemberDetailsForm, NicknameForm } from "./account-forms";
 
 export type MyReceipt = {
   id: string;
@@ -45,6 +45,9 @@ export function MyView({
   email,
   receipts,
   reviews,
+  countries,
+  details,
+  suspension,
 }: {
   lang: Locale;
   dict: Dictionary;
@@ -52,6 +55,9 @@ export function MyView({
   email: string | null;
   receipts: MyReceipt[];
   reviews: MyReview[];
+  countries: { code: string; name: string }[];
+  details: { country: string | null; age_group: string | null; gender: string | null };
+  suspension: { reason: string | null } | null;
 }) {
   const t = dict.my;
   const reviewed = new Set(reviews.map((r) => r.receipt_id));
@@ -90,6 +96,18 @@ export function MyView({
         </aside>
 
         <div className="min-w-0 space-y-10">
+          {suspension && (
+            <div role="alert" className="space-y-1.5 rounded-md border border-error bg-error-soft p-5">
+              <p className="text-sm font-bold text-error">{t.suspended.title}</p>
+              <p className="text-xs leading-relaxed text-muted">{t.suspended.body}</p>
+              {suspension.reason && (
+                <p className="text-xs text-error">
+                  {t.suspended.reason}: {suspension.reason}
+                </p>
+              )}
+            </div>
+          )}
+
           {/* Receipt verification */}
           <section id="receipts" className="scroll-mt-6 space-y-5">
             <div className="space-y-2">
@@ -183,7 +201,7 @@ export function MyView({
                       </article>
                       <div className="flex items-center gap-3">
                         <DeleteReviewForm lang={lang} reviewId={r.id} label={t.reviews.delete} confirmText={t.reviews.deleteConfirm} />
-                        <p className="text-xs text-muted">{t.reviews.public}</p>
+                        <p className="text-xs text-muted">{suspension ? t.reviews.hidden : t.reviews.public}</p>
                       </div>
                     </li>
                   );
@@ -209,6 +227,12 @@ export function MyView({
                 <p className="text-xs text-muted">{t.account.emailHelp}</p>
               </div>
             </div>
+            <MemberDetailsForm
+              lang={lang}
+              countries={countries}
+              current={details}
+              text={{ ...t.details, notLoggedIn: dict.errors.notLoggedIn, generic: dict.errors.generic }}
+            />
           </section>
 
           {/* Language */}

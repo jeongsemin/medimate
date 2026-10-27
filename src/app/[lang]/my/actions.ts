@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { hasLocale } from "@/i18n/config";
+import { parseMemberDetails } from "@/lib/member-details";
 import { parseNickname } from "@/lib/profile-input";
 import { createClient } from "@/lib/supabase/server";
 
@@ -17,6 +18,30 @@ export async function updateNickname(_prev: NicknameState, form: FormData): Prom
 
   // RLS limits this to the caller's own profile row.
   const { error } = await supabase.from("profiles").update({ display_name: nickname }).eq("id", auth.user.id);
+  if (error) return { error: "generic" };
+
+  const lang = String(form.get("lang") ?? "");
+  if (hasLocale(lang)) revalidatePath(`/${lang}/my`);
+  return { ok: true };
+}
+
+export type DetailsState = { ok?: true; error?: "invalid" | "notLoggedIn" | "generic" } | null;
+
+export async function updateMemberDetails(_prev: DetailsState, form: FormData): Promise<DetailsState> {
+  const details = parseMemberDetails((key) => {
+    const v = form.get(key);
+    return typeof v === "string" ? v : null;
+  });
+  if (!details) return { error: "invalid" };
+
+  const supabase = await createClient();
+  const { data: auth } = await supabase.auth.getUser();
+  if (!auth.user) return { error: "notLoggedIn" };
+
+  // RLS limits this to the caller's own row; the row is private to them and the admins' member list.
+  const { error } = await supabase
+    .from("member_details")
+    .upsert({ user_id: auth.user.id, ...details, updated_at: new Date().toISOString() }, { onConflict: "user_id" });
   if (error) return { error: "generic" };
 
   const lang = String(form.get("lang") ?? "");

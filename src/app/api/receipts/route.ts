@@ -24,6 +24,9 @@ export async function POST(request: NextRequest) {
   if (!format) return NextResponse.json({ error: "badFile" }, { status: 400 });
 
   const admin = createAdminClient();
+  const { data: suspension } = await admin.from("suspensions").select("user_id").eq("user_id", auth.user.id).maybeSingle();
+  if (suspension) return NextResponse.json({ error: "suspended" }, { status: 403 });
+
   const { data: hospital } = await admin
     .from("hospitals")
     .select("id, name")
