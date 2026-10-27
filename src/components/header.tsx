@@ -19,25 +19,23 @@ export function BrandMark({ lang }: { lang: Locale }) {
 export async function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const profile = await getProfile();
 
+  const links = [
+    { href: `/${lang}#search`, label: dict.nav.find },
+    ...(profile ? [{ href: `/${lang}/my`, label: dict.nav.my }] : []),
+    ...(profile?.is_admin ? [{ href: `/${lang}/admin`, label: dict.nav.admin }] : []),
+  ];
+
   return (
     <header className="border-b border-border bg-card">
       <Container className="flex h-[72px] items-center justify-between gap-4 md:h-[88px]">
         <BrandMark lang={lang} />
 
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
-          <Link href={`/${lang}#search`} className="hover:text-brand">
-            {dict.nav.find}
-          </Link>
-          {profile && (
-            <Link href={`/${lang}/my`} className="hover:text-brand">
-              {dict.nav.my}
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} className="hover:text-brand">
+              {l.label}
             </Link>
-          )}
-          {profile?.is_admin && (
-            <Link href={`/${lang}/admin`} className="hover:text-brand">
-              {dict.nav.admin}
-            </Link>
-          )}
+          ))}
         </nav>
 
         <div className="flex items-center gap-4 text-sm md:gap-6">
@@ -54,6 +52,17 @@ export async function Header({ lang, dict }: { lang: Locale; dict: Dictionary })
           )}
         </div>
       </Container>
+
+      {/* The desktop menu is hidden below md; the same links get their own row so nothing is unreachable. */}
+      <nav className="border-t border-border md:hidden">
+        <Container className="flex gap-6 overflow-x-auto py-1 text-sm font-medium">
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} className="flex min-h-11 shrink-0 items-center hover:text-brand">
+              {l.label}
+            </Link>
+          ))}
+        </Container>
+      </nav>
     </header>
   );
 }
