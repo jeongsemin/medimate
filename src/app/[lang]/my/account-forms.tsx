@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { startTransition, useActionState, type FormEvent } from "react";
 import { NICKNAME_MAX } from "@/lib/profile-input";
 import { deleteReview, updateMemberDetails, updateNickname, type DetailsState, type NicknameState } from "./actions";
 
@@ -90,6 +90,14 @@ export function MemberDetailsForm({
   text: DetailsText;
 }) {
   const [state, action, pending] = useActionState<DetailsState, FormData>(updateMemberDetails, null);
+  // Passing the action to <form action> makes React reset the form when it finishes. The selects
+  // would then fall back to the options they were first rendered with, i.e. the old saved values.
+  // Submitting inside a transition keeps what the member picked on screen.
+  const submit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    startTransition(() => action(data));
+  };
   const message = state?.ok
     ? text.saved
     : state?.error === "invalid"
@@ -102,7 +110,7 @@ export function MemberDetailsForm({
   const select =
     "min-h-[52px] w-full rounded-sm border border-border bg-white p-3.5 text-sm outline-none focus:border-focus";
   return (
-    <form action={action} className="space-y-4">
+    <form onSubmit={submit} className="space-y-4">
       <input type="hidden" name="lang" value={lang} />
       <div className="space-y-1">
         <p className="text-[15px] font-bold">{text.title}</p>
