@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Container } from "@/components/container";
 import { decideReceipt } from "./actions";
+import { GrantAdminForm, RevokeAdminForm } from "./admin-roles";
 
 export type Counts = { pending: number; auto_approved: number; approved: number; rejected: number };
 
@@ -29,6 +30,8 @@ export type RecentItem = {
   reject_reason: string | null;
 };
 
+export type AdminItem = { id: string; name: string; email: string | null };
+
 const fmt = (iso: string, lang: Locale) =>
   new Date(iso).toLocaleString(lang, { dateStyle: "medium", timeStyle: "short" });
 
@@ -38,12 +41,16 @@ export function AdminView({
   counts,
   queue,
   recent,
+  admins,
+  currentId,
 }: {
   lang: Locale;
   dict: Dictionary;
   counts: Counts;
   queue: QueueItem[];
   recent: RecentItem[];
+  admins: AdminItem[];
+  currentId: string;
 }) {
   const t = dict.admin;
   const stats = [
@@ -179,6 +186,33 @@ export function AdminView({
               ))}
             </ul>
           )}
+        </section>
+
+        {/* Administrators */}
+        <section className="space-y-5">
+          <div className="space-y-1">
+            <h2 className="text-2xl font-bold leading-snug md:text-[28px]">{t.roles.title}</h2>
+            <p className="text-sm text-muted">{t.roles.subtitle}</p>
+          </div>
+          <ul className="divide-y divide-border rounded-md border border-border bg-card">
+            {admins.map((a) => (
+              <li key={a.id} className="flex flex-wrap items-center justify-between gap-3 p-4 text-sm">
+                <div className="min-w-0 space-y-0.5">
+                  <p className="font-bold">
+                    {a.name}
+                    {a.id === currentId && <span className="ml-2 rounded-full bg-brand-soft px-2.5 py-0.5 text-[11px] text-brand">{t.roles.you}</span>}
+                  </p>
+                  <p className="break-all text-xs text-muted">{a.email ?? "—"}</p>
+                </div>
+                {admins.length > 1 ? (
+                  <RevokeAdminForm lang={lang} userId={a.id} label={t.roles.revoke} confirmText={t.roles.revokeConfirm} />
+                ) : (
+                  <span className="text-xs text-muted">{t.roles.lastAdmin}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+          <GrantAdminForm lang={lang} text={t.roles} />
         </section>
 
         <div className="flex items-start gap-3 rounded-[12px] bg-brand-soft p-5">

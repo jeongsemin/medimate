@@ -480,6 +480,27 @@
     "note": {
       "title": "审核标准",
       "body": "请确认诊所名称、支付日期（近 90 天内）和金额与小票一致。小票照片仅用于验证。"
+    },
+    "roles": {
+      "title": "管理员",
+      "subtitle": "可以审核小票并管理管理员的用户。最后一位管理员无法移除。",
+      "emailLabel": "通过邮箱添加管理员",
+      "emailHelp": "对方必须至少登录过一次 MediMate。",
+      "emailPlaceholder": "name@example.com",
+      "add": "添加管理员",
+      "adding": "添加中…",
+      "added": "已添加管理员。",
+      "you": "你",
+      "revoke": "移除",
+      "revokeConfirm": "要移除此人的管理员权限吗？",
+      "lastAdmin": "最后一位管理员",
+      "errors": {
+        "invalidEmail": "请输入有效的邮箱地址。",
+        "notFound": "没有使用该邮箱的账号。请先让对方登录一次。",
+        "already_admin": "该用户已经是管理员。",
+        "forbidden": "你没有执行此操作的权限。",
+        "generic": "出了点问题，请重试。"
+      }
     }
   },
   "common": {

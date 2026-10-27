@@ -3,7 +3,7 @@ import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { requireProfile } from "@/lib/auth";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { AdminView, type Counts, type QueueItem, type RecentItem } from "./admin-view";
+import { AdminView, type AdminItem, type Counts, type QueueItem, type RecentItem } from "./admin-view";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 
@@ -83,5 +83,28 @@ export default async function AdminPage({ params }: PageProps<"/[lang]/admin">) 
     reject_reason: r.reject_reason,
   }));
 
-  return <AdminView lang={lang} dict={dict} counts={{ pending, auto_approved, approved, rejected }} queue={queue} recent={recent} />;
+  const { data: adminRows } = await admin
+    .from("profiles")
+    .select("id, display_name")
+    .eq("is_admin", true)
+    .order("created_at");
+  // Emails live in auth.users, so they come from the auth admin API (a handful of people at most).
+  const admins: AdminItem[] = await Promise.all(
+    (adminRows ?? []).map(async (a) => {
+      const { data } = await admin.auth.admin.getUserById(a.id);
+      return { id: a.id, name: a.display_name ?? "—", email: data.user?.email ?? null };
+    }),
+  );
+
+  return (
+    <AdminView
+      lang={lang}
+      dict={dict}
+      counts={{ pending, auto_approved, approved, rejected }}
+      queue={queue}
+      recent={recent}
+      admins={admins}
+      currentId={profile.id}
+    />
+  );
 }

@@ -480,6 +480,27 @@
     "note": {
       "title": "What to check",
       "body": "Confirm the clinic name, payment date (within 90 days) and amount match the receipt. Receipt photos are used only for verification."
+    },
+    "roles": {
+      "title": "Administrators",
+      "subtitle": "People who can review receipts and manage administrators. The last administrator can't be removed.",
+      "emailLabel": "Add an administrator by email",
+      "emailHelp": "The person must have signed in to MediMate at least once.",
+      "emailPlaceholder": "name@example.com",
+      "add": "Add administrator",
+      "adding": "Adding…",
+      "added": "Administrator added.",
+      "you": "You",
+      "revoke": "Remove",
+      "revokeConfirm": "Remove this person's administrator access?",
+      "lastAdmin": "Last administrator",
+      "errors": {
+        "invalidEmail": "Enter a valid email address.",
+        "notFound": "No account with that email. The person needs to sign in once first.",
+        "already_admin": "That person is already an administrator.",
+        "forbidden": "You don't have permission to do this.",
+        "generic": "Something went wrong. Please try again."
+      }
     }
   },
   "common": {

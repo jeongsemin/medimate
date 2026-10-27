@@ -480,6 +480,27 @@
     "note": {
       "title": "검토 기준",
       "body": "병원명, 결제일(최근 90일), 금액이 영수증과 일치하는지 확인하세요. 영수증 사진은 인증 목적 외에 사용하지 않습니다."
+    },
+    "roles": {
+      "title": "관리자",
+      "subtitle": "영수증을 검토하고 관리자를 관리할 수 있는 사람입니다. 마지막 관리자는 해제할 수 없습니다.",
+      "emailLabel": "이메일로 관리자 추가",
+      "emailHelp": "MediMate에 한 번이라도 로그인한 사람만 추가할 수 있어요.",
+      "emailPlaceholder": "name@example.com",
+      "add": "관리자 추가",
+      "adding": "추가하는 중…",
+      "added": "관리자를 추가했어요.",
+      "you": "나",
+      "revoke": "해제",
+      "revokeConfirm": "이 사람의 관리자 권한을 해제할까요?",
+      "lastAdmin": "마지막 관리자",
+      "errors": {
+        "invalidEmail": "올바른 이메일 주소를 입력해 주세요.",
+        "notFound": "해당 이메일의 계정이 없어요. 먼저 한 번 로그인하도록 안내해 주세요.",
+        "already_admin": "이미 관리자예요.",
+        "forbidden": "이 작업을 할 권한이 없어요.",
+        "generic": "문제가 생겼어요. 다시 시도해 주세요."
+      }
     }
   },
   "common": {
