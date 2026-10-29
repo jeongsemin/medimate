@@ -83,6 +83,9 @@ export default async function AdminPage({ params }: PageProps<"/[lang]/admin">) 
     reject_reason: r.reject_reason,
   }));
 
+  // Before 0003 is applied the table doesn't exist; the count then just stays 0.
+  const { count: openReports } = await admin.from("review_reports").select("id", { count: "exact", head: true }).eq("status", "open");
+
   const { data: adminRows } = await admin
     .from("profiles")
     .select("id, display_name")
@@ -105,6 +108,7 @@ export default async function AdminPage({ params }: PageProps<"/[lang]/admin">) 
       recent={recent}
       admins={admins}
       currentId={profile.id}
+      openReports={openReports ?? 0}
     />
   );
 }

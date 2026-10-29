@@ -22,6 +22,8 @@ export type MyReview = {
   visit_date: string | null;
   created_at: string;
   receipt_id: string;
+  /** Set when an administrator hid the review; the author still sees it here. */
+  hidden_at?: string | null;
   hospitals: unknown;
 };
 
@@ -201,7 +203,7 @@ export function MyView({
                       </article>
                       <div className="flex items-center gap-3">
                         <DeleteReviewForm lang={lang} reviewId={r.id} label={t.reviews.delete} confirmText={t.reviews.deleteConfirm} />
-                        <p className="text-xs text-muted">{suspension ? t.reviews.hidden : t.reviews.public}</p>
+                        <p className="text-xs text-muted">{suspension || r.hidden_at ? t.reviews.hidden : t.reviews.public}</p>
                       </div>
                     </li>
                   );

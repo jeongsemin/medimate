@@ -31,7 +31,7 @@ export default async function MyPage({ params }: PageProps<"/[lang]/my">) {
       .order("created_at", { ascending: false }),
     supabase
       .from("reviews")
-      .select("id, rating, body, treatment, visit_date, created_at, receipt_id, hospitals(id, name)")
+      .select("id, rating, body, treatment, visit_date, created_at, receipt_id, hidden_at, hospitals(id, name)")
       .eq("user_id", profile.id)
       .order("created_at", { ascending: false }),
     // Both tables are private: RLS returns only the caller's own row.

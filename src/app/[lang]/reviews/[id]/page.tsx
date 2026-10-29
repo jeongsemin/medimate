@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { getProfile } from "@/lib/auth";
 import { pageMetadata } from "@/lib/seo";
 import { createClient } from "@/lib/supabase/server";
 import { ReviewView, type ClinicData, type ReviewData } from "./review-view";
@@ -40,6 +41,7 @@ async function load(id: string) {
     price_explained: review.price_explained,
     no_upselling: review.no_upselling,
     author: (review.profiles as unknown as { display_name: string | null } | null)?.display_name ?? null,
+    hidden: Boolean(review.hidden_at),
   };
   const clinic: ClinicData = {
     id: hospital.id,
@@ -51,7 +53,7 @@ async function load(id: string) {
     fluent_english_count: stats?.fluent_english_count ?? 0,
     director_count: stats?.director_count ?? 0,
   };
-  return { reviewData, clinic };
+  return { reviewData, clinic, authorId: review.user_id as string };
 }
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/reviews/[id]">): Promise<Metadata> {
@@ -76,5 +78,21 @@ export default async function ReviewPage({ params }: PageProps<"/[lang]/reviews/
   const found = await load(id);
   if (!found) notFound();
   const dict = await getDictionary(lang);
-  return <ReviewView lang={lang} dict={dict} review={found.reviewData} clinic={found.clinic} />;
+
+  // What the viewer may do about this review: report it, or see that they already did.
+  const profile = await getProfile();
+  let reported = false;
+  if (profile) {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from("review_reports")
+      .select("id")
+      .eq("review_id", id)
+      .eq("reporter_id", profile.id)
+      .maybeSingle();
+    reported = Boolean(data);
+  }
+  const viewer = { signedIn: Boolean(profile), isAuthor: profile?.id === found.authorId, reported };
+
+  return <ReviewView lang={lang} dict={dict} review={found.reviewData} clinic={found.clinic} viewer={viewer} />;
 }

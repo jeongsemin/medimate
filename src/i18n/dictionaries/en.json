@@ -602,6 +602,50 @@
       "prev": "Previous",
       "next": "Next",
       "privacy": "Handle this data carefully: use it only to run the service, and don't copy it elsewhere."
+    },
+    "reportsLink": {
+      "title": "Reported reviews",
+      "body": "Review what members have reported and hide reviews or suspend authors.",
+      "open": "Open reports",
+      "count": "{n} waiting"
+    },
+    "reports": {
+      "breadcrumb": "Admin / Reports",
+      "title": "Reported reviews",
+      "subtitle": "Reviews that members have reported. Dismiss a report, or hide the review; hiding can be undone.",
+      "back": "Back to review queue",
+      "open": "Awaiting a decision",
+      "queueTitle": "Awaiting a decision",
+      "empty": "No reports waiting.",
+      "card": {
+        "reports": "{n} report(s)",
+        "clinic": "Clinic",
+        "author": "Author",
+        "viewReview": "Open the review",
+        "reasons": "Reasons",
+        "details": "What reporters wrote",
+        "hidden": "Already hidden",
+        "reasonPlaceholder": "Reason shown to the author (only used when suspending)"
+      },
+      "actions": {
+        "dismiss": "Dismiss",
+        "hide": "Hide review",
+        "hideSuspend": "Hide and suspend author"
+      },
+      "confirm": {
+        "hide": "Hide this review? Everyone except the author and administrators stops seeing it. You can restore it later.",
+        "hideSuspend": "Hide this review and suspend its author? The author can't upload receipts or write reviews, and all their reviews are hidden. Administrators are never suspended."
+      },
+      "recent": {
+        "title": "Recently handled",
+        "empty": "Nothing handled yet.",
+        "dismissed": "Dismissed",
+        "actioned": "Review hidden",
+        "hiddenNow": "Hidden now",
+        "restore": "Restore review",
+        "restoreConfirm": "Show this review again?"
+      },
+      "note": "Check that the review really breaks the rules before hiding it. Reporters' names are not shown to the author."
     }
   },
   "common": {
@@ -680,6 +724,35 @@
     "separateTitle": "Reviews and clinic info are separate",
     "separateBody": "This is a user experience. Check the clinic's address, phone and other details on its own page.",
     "readMore": "Read in full",
-    "notFoundHint": "We couldn't find this review."
+    "notFoundHint": "We couldn't find this review.",
+    "report": {
+      "open": "Report this review",
+      "intro": "If something is wrong with this review, tell us. An administrator will look at it.",
+      "reason": "Reason",
+      "reasons": {
+        "spam": "Advertising or promotion",
+        "abuse": "Abusive or hateful language",
+        "personal_info": "Exposes personal information",
+        "false_info": "Untrue or misleading",
+        "other": "Something else"
+      },
+      "detail": "Details",
+      "detailHelp": "Optional, but required for \"Something else\". Up to 300 characters.",
+      "submit": "Send report",
+      "submitting": "Sending…",
+      "done": "Thanks. Your report was received and an administrator will review it.",
+      "already": "You have already reported this review. An administrator is looking at it.",
+      "own": "You can't report your own review.",
+      "login": "Sign in to report",
+      "errors": {
+        "invalid": "Choose a reason (and describe it if you chose \"Something else\").",
+        "own": "You can't report your own review.",
+        "already": "You have already reported this review.",
+        "suspended": "A suspended account can't report reviews.",
+        "limit": "You've sent a lot of reports today. Please try again tomorrow.",
+        "notLoggedIn": "Please sign in first.",
+        "generic": "Something went wrong. Please try again."
+      }
+    }
   }
 }

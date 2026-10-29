@@ -67,6 +67,70 @@ export async function setSuspension(form: FormData) {
   revalidatePath(`/${hasLocale(lang) ? lang : "en"}/admin/members`);
 }
 
+/**
+ * Decides every open report on one review: dismiss them, hide the review, or hide it and also suspend
+ * its author (never an administrator, never the person acting).
+ */
+export async function resolveReports(form: FormData) {
+  const profile = await getProfile();
+  if (!profile?.is_admin) throw new Error("forbidden");
+
+  const reviewId = String(form.get("reviewId") ?? "");
+  const decision = form.get("decision");
+  if (!UUID.test(reviewId)) throw new Error("invalid review");
+  if (decision !== "dismiss" && decision !== "hide" && decision !== "hide_suspend") throw new Error("invalid decision");
+  const reason = String(form.get("reason") ?? "").replace(/\s+/g, " ").trim().slice(0, 200);
+
+  const admin = createAdminClient();
+  const { data: review } = await admin.from("reviews").select("id, user_id").eq("id", reviewId).maybeSingle();
+  if (!review) return;
+
+  if (decision !== "dismiss") {
+    const { error } = await admin.from("reviews").update({ hidden_at: new Date().toISOString() }).eq("id", reviewId);
+    if (error) throw new Error("hide failed");
+  }
+
+  if (decision === "hide_suspend") {
+    const { data: author } = await admin.from("profiles").select("id, is_admin").eq("id", review.user_id).maybeSingle();
+    if (author && pickSuspendTargets([author.id], profile.id, new Set(author.is_admin ? [author.id] : [])).length > 0) {
+      const { error } = await admin
+        .from("suspensions")
+        .upsert({ user_id: author.id, reason: reason || null, suspended_by: profile.id }, { onConflict: "user_id" });
+      if (error) throw new Error("suspend failed");
+    }
+  }
+
+  // Only still-open reports are closed, so two administrators can't overwrite each other.
+  const { error } = await admin
+    .from("review_reports")
+    .update({
+      status: decision === "dismiss" ? "dismissed" : "actioned",
+      resolved_by: profile.id,
+      resolved_at: new Date().toISOString(),
+    })
+    .eq("review_id", reviewId)
+    .eq("status", "open");
+  if (error) throw new Error("update failed");
+
+  const lang = String(form.get("lang") ?? "");
+  revalidatePath(`/${hasLocale(lang) ? lang : "en"}/admin/reports`);
+}
+
+/** Shows a hidden review again. It doesn't reopen the reports or lift a suspension. */
+export async function restoreReview(form: FormData) {
+  const profile = await getProfile();
+  if (!profile?.is_admin) throw new Error("forbidden");
+
+  const reviewId = String(form.get("reviewId") ?? "");
+  if (!UUID.test(reviewId)) throw new Error("invalid review");
+
+  const { error } = await createAdminClient().from("reviews").update({ hidden_at: null }).eq("id", reviewId);
+  if (error) throw new Error("restore failed");
+
+  const lang = String(form.get("lang") ?? "");
+  revalidatePath(`/${hasLocale(lang) ? lang : "en"}/admin/reports`);
+}
+
 export type GrantState = { ok?: true; error?: RoleError | "invalidEmail" | "notFound" | "forbidden" | "generic" } | null;
 
 async function adminCount(admin: ReturnType<typeof createAdminClient>) {

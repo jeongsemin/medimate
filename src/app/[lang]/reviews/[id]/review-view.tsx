@@ -4,6 +4,7 @@ import { hasLocale, localeNames, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Container } from "@/components/container";
 import { StarRating } from "@/components/star-rating";
+import { ReportForm } from "./report-form";
 
 export type ReviewData = {
   id: string;
@@ -19,7 +20,11 @@ export type ReviewData = {
   price_explained: boolean;
   no_upselling: boolean;
   author: string | null;
+  /** Hidden by an administrator: only the author and administrators can still open it. */
+  hidden: boolean;
 };
+
+export type Viewer = { signedIn: boolean; isAuthor: boolean; reported: boolean };
 
 export type ClinicData = {
   id: string;
@@ -40,11 +45,13 @@ export function ReviewView({
   dict,
   review,
   clinic,
+  viewer,
 }: {
   lang: Locale;
   dict: Dictionary;
   review: ReviewData;
   clinic: ClinicData;
+  viewer: Viewer;
 }) {
   const t = dict.reviewDetail;
   const author = review.author ?? "—";
@@ -95,6 +102,9 @@ export function ReviewView({
                 {fill(t.written, { date: new Date(review.created_at).toLocaleDateString(lang), lang: writtenIn })}
               </p>
             </div>
+            {review.hidden && (
+              <span className="rounded-full bg-error-soft px-3 py-1 text-xs font-bold text-error">{dict.my.reviews.hidden}</span>
+            )}
           </div>
 
           <div className="space-y-3.5 rounded-md bg-surface p-6">
@@ -137,6 +147,21 @@ export function ReviewView({
               <p className="text-xs leading-relaxed text-muted">{t.privacyBody}</p>
             </div>
           </div>
+
+          {/* Reporting: not for the author, and only once per member. */}
+          {!viewer.isAuthor &&
+            (!viewer.signedIn ? (
+              <Link
+                href={`/${lang}/login?next=${encodeURIComponent(`/${lang}/reviews/${review.id}`)}`}
+                className="inline-block text-sm font-bold text-muted hover:text-foreground"
+              >
+                {t.report.login}
+              </Link>
+            ) : viewer.reported ? (
+              <p className="text-sm text-muted">{t.report.already}</p>
+            ) : (
+              <ReportForm lang={lang} reviewId={review.id} text={t.report} />
+            ))}
         </article>
 
         <aside className="space-y-5 lg:sticky lg:top-6">
